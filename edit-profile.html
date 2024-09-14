@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="editProfileForm">
+        <h2>Edit Profile</h2>
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" required>
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+        <label for="phone">Phone</label>
+        <input type="text" id="phone">
+        <label for="address">Address</label>
+        <input type="text" id="address">
+        <label for="bio">Bio</label>
+        <input type="text" id="bio">
+        <label for="skills">Skills</label>
+        <input type="text" id="skills">
+        <label for="linkedin">LinkedIn</label>
+        <input type="text" id="linkedin">
+        <label for="website">Website</label>
+        <input type="url" id="website">
+        <button type="submit">Save Profile</button>
+    </form>
+
+    <!-- Link to dashboard -->
+    <a href="dashboard.html">Go to Dashboard</a>
+
+    <!-- Firebase JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.10/firebase-database.js"></script>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAI0BlQnSW2yXitTo6VDMF3fzKktyCS4aQ",
+            authDomain: "project-for-everyone.firebaseapp.com",
+            projectId: "project-for-everyone",
+            storageBucket: "project-for-everyone.appspot.com",
+            messagingSenderId: "596672283631",
+            appId: "1:596672283631:web:f805fc04f72661b9762c1a",
+            measurementId: "G-LMGRC4KGV8"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+        const auth = firebase.auth();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('editProfileForm');
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                // Check if user is authenticated
+                auth.onAuthStateChanged((user) => {
+                    if (user) {
+                        console.log("User is authenticated", user); // Debugging
+
+                        const userId = user.uid;
+                        const updates = {
+                            firstName: document.getElementById('firstName').value,
+                            lastName: document.getElementById('lastName').value,
+                            email: document.getElementById('email').value,
+                            phone: document.getElementById('phone').value,
+                            address: document.getElementById('address').value,
+                            bio: document.getElementById('bio').value,
+                            skills: document.getElementById('skills').value,
+                            linkedin: document.getElementById('linkedin').value,
+                            website: document.getElementById('website').value
+                        };
+
+                        // Update Firebase database
+                        database.ref('users/' + userId).update(updates)
+                            .then(() => {
+                                console.log('Profile updated successfully!'); // Debugging
+                                alert('Profile updated successfully!');
+                            })
+                            .catch((error) => {
+                                console.error('Error updating profile:', error); // Debugging
+                            });
+                    } else {
+                        console.error('User not authenticated'); // Debugging
+                        alert('User not authenticated.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

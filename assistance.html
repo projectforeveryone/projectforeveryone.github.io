@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistance - Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #004494;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        button {
+            background-color: #004494; /* Professional Blue */
+            color: #ffffff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #003370; /* Darker Blue */
+            transform: translateY(-2px);
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .contact-method {
+            margin-bottom: 2rem;
+        }
+        .contact-method h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .contact-method p {
+            line-height: 1.6;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .contact-form input, .contact-form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact-form input[type="submit"] {
+            background-color: #004494;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            padding: 0.5rem;
+        }
+        .contact-form input[type="submit"]:hover {
+            background-color: #004494;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #004494;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Contact Us for Assistance</h1>
+    <button class="home-button" onclick="window.location.href='index.html'">Home</button>
+</header>
+
+<div class="container">
+    <h1>Ways to Contact Us</h1>
+
+    <div class="contact-method">
+        <h2>Phone</h2>
+        <p>You can reach us at: <strong>(123) 456-7890</strong></p>
+        <p>Our phone lines are open Monday to Friday, 9 AM - 5 PM.</p>
+    </div>
+
+    <div class="contact-method">
+        <h2>Contact Form</h2>
+        <form id="contact-form" class="contact-form" action="/submit-enquiry" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Kickstart Your Dream Career. All rights reserved.</p>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script src="enquiries.js"></script>
+</body>
+</html>

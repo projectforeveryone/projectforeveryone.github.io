@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload your Project</title>
+    <link rel="stylesheet" href="user.css">
+</head>
+<body>
+    <input type="file" class="inputfile" id="fileinp" onchange="getfile(event)" accept=".pdf, .doc, .docx"> 
+    <label for="fileinp">+</label>
+    <button onclick="uploadFile()">UPLOAD YOUR FILE</button>
+    <div class="fileText"></div>
+    <div class="bar">
+        <div class="progress"></div>
+    </div>
+    <div class="uploadPercentage">0%</div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
+    <script src="user.js"></script>
+</body>
+</html>

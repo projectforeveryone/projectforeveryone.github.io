@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Apply for a Project</h2>
+        <form id="applicationForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="project">Choose a Project:</label>
+                <select id="project" name="project" required>
+                    <option value="Project A - Web Development">Project A - Web Development</option>
+                    <option value="Project B - Mobile App">Project B - Mobile App</option>
+                    <option value="Project C - Data Analysis">Project C - Data Analysis</option>
+                </select>
+            </div>
+            <button type="submit">Submit Application</button>
+        </form>
+        <button class="home-button" onclick="window.location.href='index.html'">Home</button>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"></script>
+
+    <!-- Your Firebase Configuration -->
+    <script>
+        const firebaseConfig = {
+        apiKey: "AIzaSyAI0BlQnSW2yXitTo6VDMF3fzKktyCS4aQ",
+        authDomain: "project-for-everyone.firebaseapp.com",
+        projectId: "project-for-everyone",
+        storageBucket: "project-for-everyone.appspot.com",
+        messagingSenderId: "596672283631",
+        appId: "1:596672283631:web:f805fc04f72661b9762c1a",
+        measurementId: "G-LMGRC4KGV8"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="application.js"></script>
+</body>
+</html>

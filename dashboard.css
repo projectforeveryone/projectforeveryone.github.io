@@ -1,0 +1,273 @@
+/* General Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(rgba(240, 240, 250, 0.85), rgba(240, 240, 250, 0.85)), url('motivation.jpg');
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Header Styles */
+header {
+  text-align: center;
+  margin-bottom: 25px;
+  background-color: #003366; /* Dark Blue */
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 0;
+}
+
+nav ul li {
+  margin: 0 12px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #0066cc; /* Bright Blue */
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #004da1; /* Slightly Darker Blue */
+}
+
+/* Section Styles */
+#dashboard {
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+#dashboard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25); /* Semi-transparent overlay for better text readability */
+  z-index: -1; /* Places the overlay behind the text */
+  border-radius: 10px;
+}
+
+h2 {
+  color: #003366; /* Dark Blue */
+  margin-top: 0;
+  font-size: 1.8em;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Text shadow for better visibility */
+}
+
+p {
+  color: #444;
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* Text shadow for better visibility */
+}
+
+/* Profile Container Styles */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 25px 0;
+  position: relative;
+}
+
+.profile-container img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #003366; /* Dark Blue border */
+  object-fit: cover;
+}
+
+.profile-container input[type="file"] {
+  margin-right: 0;
+  font-size: 1em;
+}
+/* Additional inline styles for profile info */
+.profile-info {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.profile-info h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #003366;
+}
+.profile-info p {
+  margin: 10px 0;
+}
+.profile-info label {
+  font-weight: bold;
+}
+
+button {
+  background-color: #003366; /* Dark Blue */
+  color: #ffffff;
+  padding: 12px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #00214d; /* Darker Blue */
+}
+
+button#uploadPhoto {
+  background-color: #28a745; /* Green */
+}
+
+button#uploadPhoto:hover {
+  background-color: #218838; /* Darker Green */
+}
+
+/* Dashboard Actions Styles */
+.dashboard-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+/* Style for the progress bar */
+.progress-container {
+  width: 100%;
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: none; /* Hide by default */
+}
+.progress-bar {
+  height: 20px;
+  background-color: #003366;
+  text-align: center;
+  color: white;
+  width: 0%;
+  border-radius: 5px;
+}
+.progress-message {
+  margin-top: 10px;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  nav ul {
+    flex-direction: column;
+    margin: 10px 0;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .profile-container {
+    flex-direction: column;
+  }
+
+  .profile-container img {
+    width: 100px;
+    height: 100px;
+  }
+
+  button {
+    padding: 10px 15px;
+    font-size: 0.9em;
+  }
+
+  .dashboard-actions {
+    gap: 10px;
+  }
+
+  #dashboard {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.2em;
+  }
+
+  .profile-container img {
+    width: 80px;
+    height: 80px;
+  }
+
+  button {
+    padding: 8px 12px;
+    font-size: 0.8em;
+  }
+
+  .dashboard-actions {
+    gap: 8px;
+  }
+
+  #dashboard {
+    padding: 10px;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}

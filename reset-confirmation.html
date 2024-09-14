@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Confirmation - Project Collaboration Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+    
+      <h1>Password Reset Email Sent</h1>
+      
+    </header>
+    
+    <section id="reset-confirmation" class="section">
+      <h2>Check Your Email</h2>
+      <p>We have sent a password reset link to your email. Please check your inbox and follow the instructions to reset your password.</p>
+      <button id="goToLogin">Go to Login</button>
+    </section>
+  </div>
+  <script>
+    // Redirect to the login page when the button is clicked
+    document.getElementById('goToLogin').addEventListener('click', function() {
+        window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

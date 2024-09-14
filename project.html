@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Key Projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333333;
+        }
+
+        header {
+            background-color: #004494; /* Professional Blue */
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #fff /* Professional Blue */
+        }
+
+        .search-bar {
+            margin-bottom: 1.5rem;
+            padding: 0.75rem;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .project {
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #004494; /* Professional Blue */
+        }
+        .project h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: red; /* Professional Blue */
+        }
+
+        .project p {
+            line-height: 1.6;
+            color: #555555;
+        }
+
+        .project a {
+            text-decoration: none;
+            color: #d32f2f; /* Educative Red */
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .project a:hover {
+            color: #b71c1c; /* Darker Red */
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #004494; /* Professional Blue */
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+    <script>
+        function searchProjects() {
+            var input, filter, container, projects, project, title, i, txtValue;
+            input = document.getElementById('searchInput');
+            filter = input.value.toLowerCase();
+            container = document.getElementById('projectContainer');
+            projects = container.getElementsByClassName('project');
+
+            for (i = 0; i < projects.length; i++) {
+                project = projects[i];
+                title = project.getElementsByTagName("h2")[0];
+                txtValue = title.textContent || title.innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    project.style.display = "";
+                } else {
+                    project.style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Our Projects</h1>
+</header>
+
+<div class="container">
+    <h2>Key Projects</h2>
+    <input type="text" id="searchInput" class="search-bar" onkeyup="searchProjects()" placeholder="Search for projects...">
+
+    <div id="projectContainer">
+        <div class="project">
+            <h3><a href="mock-project-1.html">Mock Project 1</a></h2>
+            <p>This project is aimed at providing resources and support to individuals looking to start their careers. We offer workshops, mentorship, and networking opportunities.</p>
+        </div>
+
+        <div class="project">
+            <h3><a href="mock-project-2.html">Mock Project 2</a></h3>
+            <p>This project focuses on career development for professionals seeking to advance their careers. We provide training, career coaching, and access to industry experts.</p>
+        </div>
+
+        <div class="project">
+            <h3><a href="mock-project-3.html">Mock Project 3</a></h3>
+            <p>This project is dedicated to helping career changers transition into new fields. We offer personalized career plans, skill assessments, and job placement services.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Kickstart Your Dream Career. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
