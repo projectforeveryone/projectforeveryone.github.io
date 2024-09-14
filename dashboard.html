@@ -1,119 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .profile {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-            width: 400px;
-        }
-        h2 {
-            text-align: center;
-        }
-        p {
-            margin: 10px 0;
-        }
-        a {
-            display: block;
-            margin-top: 10px;
-            text-align: center;
-            text-decoration: none;
-            color: #007BFF;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Project Collaboration Platform</title>
+  <link rel="stylesheet" href="dashboard.css">
+
 </head>
 <body>
+  <div class="container">
+    <header>
+      <h1>Dashboard</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="logout.html">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <section id="dashboard" class="section">
+      <h2>Welcome to Your Dashboard</h2>
+      <p>Here you can manage your projects and collaborate with others.</p>
 
-    <div class="profile">
-        <h2>User Profile</h2>
-        <p><strong>First Name:</strong> <span id="firstName"></span></p>
-        <p><strong>Last Name:</strong> <span id="lastName"></span></p>
-        <p><strong>Email:</strong> <span id="email"></span></p>
-        <p><strong>Phone:</strong> <span id="phone"></span></p>
-        <p><strong>Address:</strong> <span id="address"></span></p>
-        <p><strong>Bio:</strong> <span id="bio"></span></p>
-        <p><strong>Skills:</strong> <span id="skills"></span></p>
-        <p><strong>LinkedIn:</strong> <span id="linkedin"></span></p>
-        <p><strong>Website:</strong> <span id="website"></span></p>
+      <!-- Profile Information Section -->
+      <div class="profile-info">
+        <h2>Profile Information</h2>
+        <p><strong>First Name:</strong> <span id="firstName">Loading...</span></p>
+        <p><strong>Last Name:</strong> <span id="lastName">Loading...</span></p>
+        <p><strong>Email:</strong> <span id="email">Loading...</span></p>
+        <p><strong>Phone Number:</strong> <span id="phone">Loading...</span></p>
+        <p><strong>Address:</strong> <span id="address">Loading...</span></p>
+        <p><strong>Bio:</strong> <span id="bio">Loading...</span></p>
+        <p><strong>Skills:</strong> <span id="skills">Loading...</span></p>
+        <p><strong>LinkedIn Profile:</strong> <a id="linkedin" href="#" target="_blank">Loading...</a></p>
+        <p><strong>Personal Website:</strong> <a id="website" href="#" target="_blank">Loading...</a></p>
+      </div>
 
-        <!-- Link to Edit Profile -->
-        <a href="edit-profile.html">Edit Profile</a>
-    </div>
-
-    <!-- Firebase JS SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.13.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.13.10/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.13.10/firebase-database.js"></script>
-
-    <script>
-      // Firebase configuration
-      const firebaseConfig = {
-          apiKey: "AIzaSyAI0BlQnSW2yXitTo6VDMF3fzKktyCS4aQ",
-          authDomain: "project-for-everyone.firebaseapp.com",
-          projectId: "project-for-everyone",
-          storageBucket: "project-for-everyone.appspot.com",
-          messagingSenderId: "596672283631",
-          appId: "1:596672283631:web:f805fc04f72661b9762c1a",
-          measurementId: "G-LMGRC4KGV8"
-      };
-
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      const database = firebase.database();
-      const auth = firebase.auth();
-
-      document.addEventListener('DOMContentLoaded', () => {
-          // Add authentication state listener
-          auth.onAuthStateChanged((user) => {
-              if (user) {
-                  console.log("User is authenticated", user); // Debugging
-
-                  // Fetch user data from Firebase Realtime Database
-                  const userId = user.uid;
-                  const userRef = database.ref('users/' + userId);
-
-                  userRef.once('value')
-                      .then((snapshot) => {
-                          const data = snapshot.val();
-                          console.log("Fetched data:", data); // Debugging
-                          if (data) {
-                              document.getElementById('firstName').innerText = data.firstName || 'N/A';
-                              document.getElementById('lastName').innerText = data.lastName || 'N/A';
-                              document.getElementById('email').innerText = data.email || 'N/A';
-                              document.getElementById('phone').innerText = data.phone || 'N/A';
-                              document.getElementById('address').innerText = data.address || 'N/A';
-                              document.getElementById('bio').innerText = data.bio || 'N/A';
-                              document.getElementById('skills').innerText = data.skills || 'N/A';
-                              document.getElementById('linkedin').innerText = data.linkedin || 'N/A';
-                              document.getElementById('website').innerText = data.website || 'N/A';
-                          } else {
-                              console.error('No data available'); // Debugging
-                              alert('No data available');
-                          }
-                      })
-                      .catch((error) => {
-                          console.error('Error fetching data:', error); // Debugging
-                      });
-              } else {
-                  console.error('User not authenticated'); // Debugging
-                  // If user is not signed in, redirect to the edit profile page
-                  window.location.href = 'editProfile.html';
-              }
-          });
-      });
-  </script>
+      <!-- Profile Picture and Upload Section -->
+      <div class="profile-container">
+        <img id="profilePhoto" src="default-profile.png" alt="Profile Photo">
+        <input type="file" id="profilePhotoInput" accept="image/*">
+        <button id="uploadPhoto">Upload Photo</button>
+        <div class="progress-container">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <div id="uploadMessage" class="upload-message">Upload Complete</div>
+      </div>
+      
+      <div class="dashboard-actions">
+        <button onclick="window.location.href='userproject.html'">Upload your project</button>
+        <button onclick="window.location.href='edit-profile.html'">Edit Profile</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Firebase SDKs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  <script src="dashboard.js"></script>
+    
 </body>
 </html>
