@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - Project Collaboration Platform</title>
   <link rel="stylesheet" href="dashboard.css">
-
 </head>
 <body>
   <div class="container">
@@ -29,25 +28,10 @@
         <p><strong>First Name:</strong> <span id="firstName">Loading...</span></p>
         <p><strong>Last Name:</strong> <span id="lastName">Loading...</span></p>
         <p><strong>Email:</strong> <span id="email">Loading...</span></p>
-        <p><strong>Phone Number:</strong> <span id="phone">Loading...</span></p>
-        <p><strong>Address:</strong> <span id="address">Loading...</span></p>
         <p><strong>Bio:</strong> <span id="bio">Loading...</span></p>
         <p><strong>Skills:</strong> <span id="skills">Loading...</span></p>
-        <p><strong>LinkedIn Profile:</strong> <a id="linkedin" href="#" target="_blank">Loading...</a></p>
-        <p><strong>Personal Website:</strong> <a id="website" href="#" target="_blank">Loading...</a></p>
       </div>
 
-      <!-- Profile Picture and Upload Section -->
-      <div class="profile-container">
-        <img id="profilePhoto" src="default-profile.png" alt="Profile Photo">
-        <input type="file" id="profilePhotoInput" accept="image/*">
-        <button id="uploadPhoto">Upload Photo</button>
-        <div class="progress-container">
-          <div id="progressBar" class="progress-bar"></div>
-        </div>
-        <div id="uploadMessage" class="upload-message">Upload Complete</div>
-      </div>
-      
       <div class="dashboard-actions">
         <button onclick="window.location.href='userproject.html'">Upload your project</button>
         <button onclick="window.location.href='edit-profile.html'">Edit Profile</button>
@@ -56,8 +40,8 @@
   </div>
   
   <!-- Firebase SDKs -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-  <script src="dashboard.js"></script>
+  
+  <script type="module" src="dashboard.js"></script>
     
 </body>
 </html>

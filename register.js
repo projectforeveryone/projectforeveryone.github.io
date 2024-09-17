@@ -1,18 +1,18 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAI0BlQnSW2yXitTo6VDMF3fzKktyCS4aQ",
-    authDomain: "project-for-everyone.firebaseapp.com",
-    projectId: "project-for-everyone",
-    storageBucket: "project-for-everyone.appspot.com",
-    messagingSenderId: "596672283631",
-    appId: "1:596672283631:web:f805fc04f72661b9762c1a",
-    measurementId: "G-LMGRC4KGV8"
+    apiKey: "AIzaSyDG51D4xiyKPF07LIs69nHeoEJmCbL-oQA",
+    authDomain: "official-pfe.firebaseapp.com",
+    projectId: "official-pfe",
+    storageBucket: "official-pfe.appspot.com",
+    messagingSenderId: "470366394426",
+    appId: "1:470366394426:web:c08eed4f0629ec09603d03"
   };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

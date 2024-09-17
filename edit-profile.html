@@ -97,61 +97,7 @@
             bottom: 0;
         }
     </style>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js"></script>
-    <script>
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyAI0BlQnSW2yXitTo6VDMF3fzKktyCS4aQ",
-            authDomain: "project-for-everyone.firebaseapp.com",
-            projectId: "project-for-everyone",
-            storageBucket: "project-for-everyone.appspot.com",
-            messagingSenderId: "596672283631",
-            appId: "1:596672283631:web:f805fc04f72661b9762c1a",
-            measurementId: "G-LMGRC4KGV8"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-        const auth = firebase.auth();
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const form = document.querySelector('form');
-
-            form.addEventListener('submit', (event) => {
-                event.preventDefault();
-
-                const user = auth.currentUser;
-                if (user) {
-                    const userId = user.uid;
-                    const updates = {
-                        firstName: document.getElementById('firstName').value,
-                        lastName: document.getElementById('lastName').value,
-                        email: document.getElementById('email').value,
-                        phone: document.getElementById('phone').value,
-                        address: document.getElementById('address').value,
-                        bio: document.getElementById('bio').value,
-                        skills: document.getElementById('skills').value,
-                        linkedin: document.getElementById('linkedin').value,
-                        website: document.getElementById('website').value
-                    };
-
-                    database.ref('users/' + userId).update(updates)
-                        .then(() => {
-                            alert('Profile updated successfully!');
-                        })
-                        .catch((error) => {
-                            console.error('Error updating profile:', error);
-                        });
-                } else {
-                    alert('User not authenticated.');
-                }
-            });
-        });
-    </script>
+    
 </head>
 <body>
 
@@ -161,6 +107,7 @@
 
 <div class="container">
     <h1>Profile Information</h1>
+    <div id="updateMessage" style="color: green; margin-top: 10px;"></div>
     <form>
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" required>
@@ -171,23 +118,11 @@
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required>
-
-        <label for="address">Address:</label>
-        <textarea id="address" name="address" rows="3" required></textarea>
-
         <label for="bio">Bio:</label>
         <textarea id="bio" name="bio" rows="5" required></textarea>
 
         <label for="skills">Skills:</label>
         <textarea id="skills" name="skills" rows="3" required></textarea>
-
-        <label for="linkedin">LinkedIn Profile:</label>
-        <input type="url" id="linkedin" name="linkedin">
-
-        <label for="website">Personal Website:</label>
-        <input type="url" id="website" name="website">
 
         <input type="submit" value="Save Profile">
     </form>
@@ -199,6 +134,69 @@
 <footer>
     <p>&copy; 2024 Kickstart Your Dream Career. All rights reserved.</p>
 </footer>
+<script>
+    // Import the functions you need from the SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+    import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDG51D4xiyKPF07LIs69nHeoEJmCbL-oQA",
+        authDomain: "official-pfe.firebaseapp.com",
+        projectId: "official-pfe",
+        storageBucket: "official-pfe.appspot.com",
+        messagingSenderId: "470366394426",
+        appId: "1:470366394426:web:c08eed4f0629ec09603d03"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+
+    // Reference to the database
+    const profileDB = ref(database, 'users');
+
+    // Listen for form submit
+    document.getElementById("profile-form").addEventListener('submit', submitForm);
+
+    // Submit form
+    function submitForm(e) {
+        e.preventDefault();
+
+        const firstName = getElementVal("firstName");
+        const lastName = getElementVal("lastName");
+        const email = getElementVal("email");
+        const bio = getElementVal("bio");
+        const skills = getElementVal("skills");
+
+        saveProfile(firstName, lastName, email, bio, skills);
+
+        // Show success message after submission
+        document.getElementById("updateMessage").innerHTML = "Profile updated successfully!";
+        
+        // Optionally reset the form
+        document.getElementById("profile-form").reset();
+    }
+
+    // Save profile to Firebase
+    const saveProfile = (firstName, lastName, email, bio, skills) => {
+        const newProfileRef = push(profileDB);
+        set(newProfileRef, {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            bio: bio,
+            skills: skills
+        });
+    }
+
+    // Get form values
+    const getElementVal = (id) => {
+        return document.getElementById(id).value;
+    }
+
+</script>
 </body>
 </html>
