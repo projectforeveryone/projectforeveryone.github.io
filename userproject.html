@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="user.css">
 </head>
 <body>
+    <!-- Instruction Form at the top-right -->
+    <div class="instruction-form">
+        <h3>Instructions</h3>
+        <ul>
+            <li>Select a file to upload by clicking on the + sign</li>
+            <li>Accepted formats: PDF, DOC, DOCX.</li>
+            <li>Click 'Upload Your File' to start the upload.</li>
+            <li>Check the progress bar for upload status.</li>
+            <li>Once Upload complete you can return to Dashboard</li>
+        </ul>
+    </div>
+    <br>
     <input type="file" class="inputfile" id="fileinp" onchange="getfile(event)" accept=".pdf, .doc, .docx"> 
     <label for="fileinp">+</label>
     <button onclick="uploadFile()">UPLOAD YOUR FILE</button>
@@ -15,6 +27,9 @@
         <div class="progress"></div>
     </div>
     <div class="uploadPercentage">0%</div>
+    <div class="message"></div>
+    <br>
+    <a href="dashboard.html" class="return-btn">Return to Dashboard</a>
 
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>

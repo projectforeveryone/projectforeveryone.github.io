@@ -67,3 +67,16 @@ googleRegisterButton.addEventListener('click', function(event) {
       messageElement.style.color = "red"; // Display error message in red
     });
 });
+// Sign in with Microsoft
+document.getElementById('microsoft-register').addEventListener('click', () => {
+  const provider = new firebase.auth.OAuthProvider('microsoft.com');
+
+  auth.signInWithPopup(provider).then((result) => {
+    const user = result.user;
+    console.log('User signed in: ', user);
+    window.location.href = "dashboard.html";
+  })
+  .catch((error) => {
+    console.error('Error during sign-in: ', error);
+  });
+});

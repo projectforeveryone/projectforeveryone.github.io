@@ -3,45 +3,39 @@ header h1 {
     margin: 0;
     font-size: 2em;
     font-weight: bold;
-    text-align: left;
     color: #004494;
-  }
+}
 
 body {
     font-family: 'Lato', Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    color: #333333;
+    background: linear-gradient(rgba(200, 200, 230, 0.7), rgba(200, 200, 230, 0.7)), url('motivation.jpg') center/cover;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: linear-gradient(rgba(200, 200, 230, 0.7), rgba(200, 200, 230, 0.7)), url('motivation.jpg');
-    background-position: center;
-    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
 h2 {
-    text-align: left;
-    color: #004494; /* Professional Blue */
+    color: #004494;
     font-size: 1.8em;
     margin-bottom: 20px;
-  }
+}
 
-/* Container for Forms */
+/* Form Container */
 .form-container {
     width: 80%;
     max-width: 280px;
     padding: 12px;
-    background-color: #ffffff;
+    background-color: #fff;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     text-align: center;
 }
 
 .form-container h2 {
-    color: #004494; /* Professional Blue */
     margin-bottom: 12px;
     font-size: 1.2rem;
     font-weight: 600;
@@ -56,96 +50,90 @@ h2 {
 .form-group label {
     display: block;
     margin-bottom: 4px;
-    color: #333333;
+    color: #333;
     font-weight: bold;
     font-size: 0.8rem;
 }
 
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="password"] {
+.form-group input {
     width: 100%;
     padding: 6px;
-    box-sizing: border-box;
-    border: 1px solid #cccccc;
+    border: 1px solid #ccc;
     border-radius: 3px;
     font-size: 0.8rem;
+    box-sizing: border-box;
 }
 
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group input[type="password"]:focus {
-    border-color: #004494; /* Professional Blue */
+.form-group input:focus {
+    border-color: #004494;
     outline: none;
 }
 
 /* Button Styles */
 button {
-    background-color: #004494; /* Professional Blue */
-    color: #ffffff;
+    background-color: #004494;
+    color: #fff;
     padding: 7px 10px;
     border: none;
     border-radius: 3px;
-    cursor: pointer;
     width: 100%;
     margin-top: 8px;
     font-size: 0.85rem;
     font-weight: bold;
+    cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
-    background-color: #003370; /* Darker Blue */
+    background-color: #003370;
     transform: translateY(-2px);
 }
 
-/* Home Button Styles */
+/* Home Button */
 .home-button {
-    background-color: #004494; /* Bright Red */
-    color: #ffffff;
+    background-color: #004494;
+    color: #fff;
     padding: 7px 10px;
     border: none;
     border-radius: 3px;
-    cursor: pointer;
+    width: 100px;
+    margin: 10px auto 0;
     text-align: center;
-    display: block;
-    margin: 10px auto 0; /* Centering the button */
-    width: 100px; /* Slightly wider to better center */
+    cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     font-size: 0.8rem;
     font-weight: bold;
 }
 
 .home-button:hover {
-    background-color: #003370; /* Darker Red */
+    background-color: #003370;
     transform: translateY(-2px);
 }
 
-/* Link Styles */
+/* Links */
 .form-container a {
-    color: #004494; /* Professional Blue */
+    color: #004494;
     text-decoration: none;
-    display: block;
     margin-top: 8px;
     font-size: 0.8rem;
     transition: color 0.3s;
 }
 
 .form-container a:hover {
-    color: #003370; /* Darker Blue */
+    color: #003370;
     text-decoration: underline;
 }
 
 /* Footer Text */
 .footer-text {
     margin-top: 12px;
-    color: #666666;
+    color: #666;
     font-size: 0.7rem;
     text-align: center;
 }
 
 .footer-text a {
-    color: #004494; /* Professional Blue */
+    color: #004494;
     text-decoration: none;
 }
 
@@ -156,8 +144,8 @@ button:hover {
 /* Responsive Design */
 @media (max-width: 600px) {
     .form-container {
-        padding: 8px;
         width: 75%;
+        padding: 8px;
     }
 
     .form-container h2 {

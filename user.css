@@ -1,4 +1,4 @@
-/* General body styling */
+/* General body styling */ 
 body {
     font-family: Arial, sans-serif;
     background-color: white;
@@ -9,6 +9,7 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    position: relative;
 }
 
 /* Styling for the file input */
@@ -26,6 +27,7 @@ label[for="fileinp"] {
     cursor: pointer;
     display: inline-block;
     margin-bottom: 20px;
+    z-index: 1; /* Ensure it's above other elements */
 }
 
 /* Styling for the upload button */
@@ -60,4 +62,64 @@ button {
 .uploadPercentage {
     font-size: 16px;
     color: black;
+}
+
+/* Styling for the 'Return to Dashboard' button */
+.return-btn {
+    font-size: 14px;
+    background-color: #004494; /* Blue button */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.return-btn:hover {
+    background-color: #003370; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+/* Instruction form styles */
+.instruction-form {
+    background-color: white;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative; /* Changed to relative to stack underneath button on mobile */
+    margin-top: 20px; /* Space from button */
+}
+
+/* Instruction form heading */
+.instruction-form h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #004494;
+}
+
+.instruction-form ul {
+    padding-left: 20px;
+}
+
+.instruction-form ul li {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+/* Styling for responsive design */
+@media (max-width: 600px) {
+    .instruction-form {
+        width: 90%; /* Adjust width for mobile */
+        margin-top: 10px; /* Margin above form */
+    }
+
+    .return-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin-bottom: 10px; /* Margin between button and form */
+    }
 }

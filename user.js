@@ -14,15 +14,19 @@ firebase.initializeApp(firebaseConfig);
 var filetext = document.querySelector(".fileText");
 var uploadPercentage = document.querySelector(".uploadPercentage");
 var progress = document.querySelector(".progress");
+var message = document.querySelector(".message"); // For the 'Upload completed' message
 var percentVal;
 var fileItem;
 var fileName;
 
-// Corrected function to get the selected file
+// Function to get the selected file
 function getfile(e) {
-    fileItem = e.target.files[0]; // Corrected from e.target.file[0] to e.target.files[0]
+    fileItem = e.target.files[0];
     fileName = fileItem.name;
     filetext.innerHTML = fileName;
+    message.innerHTML = ""; // Clear any previous messages
+    progress.style.display = "block"; // Show the progress bar
+    uploadPercentage.style.display = "block"; // Show the percentage
 }
 
 function uploadFile() {
@@ -31,8 +35,8 @@ function uploadFile() {
         return;
     }
 
-    let storageRef = firebase.storage().ref("documents/" + fileName); // Corrected folder name
-    let uploadTask = storageRef.put(fileItem); // Corrected from storageRef.input to storageRef.put
+    let storageRef = firebase.storage().ref("documents/" + fileName);
+    let uploadTask = storageRef.put(fileItem);
 
     uploadTask.on("state_changed", 
         (snapshot) => {
@@ -44,8 +48,17 @@ function uploadFile() {
             console.log("Error:", error);
         }, 
         () => {
+            // When the upload is complete
             uploadTask.snapshot.ref.getDownloadURL().then((url) => {
                 console.log("File available at:", url);
+
+                // Hide the progress bar and percentage
+                progress.style.display = "none";
+                uploadPercentage.style.display = "none";
+
+                // Show the upload completed message
+                message.innerHTML = "Upload completed";
+                message.style.color = "green";
             });
         }
     );
