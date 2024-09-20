@@ -68,15 +68,16 @@ googleLoginButton.addEventListener('click', function(event) {
     });
 });
 // Sign in with Microsoft
-document.getElementById('microsoft-signin').addEventListener('click', () => {
+document.getElementById("microsoft-signin").addEventListener("click", () => {
   const provider = new firebase.auth.OAuthProvider('microsoft.com');
 
-  auth.signInWithPopup(provider).then((result) => {
-    const user = result.user;
-    console.log('User signed in: ', user);
-    window.location.href = "dashboard.html";
-  })
-  .catch((error) => {
-    console.error('Error during sign-in: ', error);
-  });
+  auth.signInWithPopup(provider)
+    .then((result) => {
+      const user = result.user;
+      console.log('User signed in: ', user);
+      window.location.href = "dashboard.html";
+    })
+    .catch((error) => {
+      console.error('Error during sign-in: ', error);
+    });
 });
