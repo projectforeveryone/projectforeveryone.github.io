@@ -106,7 +106,7 @@
 
             for (i = 0; i < projects.length; i++) {
                 project = projects[i];
-                title = project.getElementsByTagName("h2")[0];
+                title = project.getElementsByTagName("h3")[0];
                 txtValue = title.textContent || title.innerText;
                 if (txtValue.toLowerCase().indexOf(filter) > -1) {
                     project.style.display = "";
