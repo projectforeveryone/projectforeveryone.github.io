@@ -19,6 +19,22 @@
             padding: 1rem 0;
             text-align: center;
         }
+        button {
+            background-color: #004494; /* Professional Blue */
+            color: #ffffff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #003370; /* Darker Blue */
+            transform: translateY(-2px);
+        }
 
         .container {
             max-width: 800px;
@@ -121,6 +137,7 @@
 
 <header>
     <h1>Our Projects</h1>
+    <button class="home-button" onclick="window.location.href='index.html'">Home</button>
 </header>
 
 <div class="container">
