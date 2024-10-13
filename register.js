@@ -27,6 +27,14 @@ submit.addEventListener("click", function(event) {
   // Inputs
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
+  const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+  if (!passwordPattern.test(password)) {
+    const messageElement = document.getElementById('message');
+    messageElement.textContent = "Error: Password must be at least 8 characters long and contain at least one uppercase letter (A-Z), one lowercase letter (a-z), one number (0-9), and one special character.";
+    messageElement.style.color = "red";
+    return; // Stop execution if the password doesn't meet the requirements
+  }
   const messageElement = document.getElementById('message'); // Element to display error messages
 
   createUserWithEmailAndPassword(auth, email, password)
@@ -80,4 +88,19 @@ document.getElementById("microsoft-register").addEventListener("click", () => {
     .catch((error) => {
       console.error('Error during sign-in: ', error);
     });
+});
+// Password visibility toggle
+document.getElementById('eye-icon').addEventListener('click', function () {
+  const passwordInput = document.getElementById('password');
+  const icon = document.getElementById('eye-icon');
+  
+  if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+  } else {
+      passwordInput.type = 'password';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+  }
 });

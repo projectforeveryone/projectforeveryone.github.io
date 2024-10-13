@@ -1,27 +1,14 @@
 /* General Styles */
-header h1 {
-    margin: 0;
-    font-size: 2em;
-    font-weight: bold;
-    color: #004494;
-}
-
 body {
     font-family: 'Lato', Arial, sans-serif;
     background: linear-gradient(rgba(200, 200, 230, 0.7), rgba(200, 200, 230, 0.7)), url('motivation.jpg') center/cover;
-    color: #333;
+    color: #053f86;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     padding: 0;
-}
-
-h2 {
-    color: #004494;
-    font-size: 1.8em;
-    margin-bottom: 20px;
 }
 
 /* Form Container */
@@ -35,29 +22,22 @@ h2 {
     text-align: center;
 }
 
-.form-container h2 {
-    margin-bottom: 12px;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
 /* Input Styles */
 .form-group {
     margin-bottom: 8px;
     text-align: left;
+    position: relative;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 4px;
-    color: #333;
-    font-weight: bold;
-    font-size: 0.8rem;
+/* Input wrapper to contain the input and the toggle button */
+.input-wrapper {
+    position: relative;
 }
 
 .form-group input {
     width: 100%;
     padding: 6px;
+    padding-right: 35px; /* Space for the eye icon */
     border: 1px solid #ccc;
     border-radius: 3px;
     font-size: 0.8rem;
@@ -67,6 +47,28 @@ h2 {
 .form-group input:focus {
     border-color: #004494;
     outline: none;
+}
+
+/* Eye Icon Styling */
+.eye-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.eye-toggle i {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.eye-toggle i:hover {
+    color: #004494;
 }
 
 /* Button Styles */
@@ -110,50 +112,89 @@ button:hover {
     transform: translateY(-2px);
 }
 
-/* Links */
-.form-container a {
-    color: #004494;
-    text-decoration: none;
+/* Error Message */
+#message {
+    color: red;
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+
+#google-login {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #555;
+    padding: 7px 10px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0 auto;
+    cursor: pointer;
+}
+
+#google-login .google-logo {
+    width: 30px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+#google-login:hover {
+    background-color: #f1f1f1;
+}
+
+#google-login:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+/* Register Button Styles */
+.register-button {
+    background-color: #004494;
+    color: #fff;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
     margin-top: 8px;
-    font-size: 0.8rem;
-    transition: color 0.3s;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.form-container a:hover {
-    color: #003370;
-    text-decoration: underline;
+.register-button:hover {
+    background-color: #003370;
+    transform: translateY(-2px);
 }
-
-/* Footer Text */
-.footer-text {
-    margin-top: 12px;
-    color: #666;
-    font-size: 0.7rem;
-    text-align: center;
-}
-
-.footer-text a {
-    color: #004494;
-    text-decoration: none;
-}
-
-.footer-text a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    .form-container {
-        width: 75%;
-        padding: 8px;
-    }
-
-    .form-container h2 {
-        font-size: 1.1rem;
-    }
-
-    button, .home-button {
-        padding: 5px 8px;
-        font-size: 0.8rem;
-    }
-}
+#google-register {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #555;
+    padding: 10px 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+  
+  #google-register .google-logo {
+    width: 30px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  #google-register:hover {
+    background-color: #f1f1f1;
+  }
+  
+  #google-register:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  }
+  

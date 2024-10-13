@@ -27,7 +27,7 @@
         }
     
         header .home-button {
-            background-color: #155bac; /* Professional Blue */
+            background-color: #155bac; /* Lighter Blue for hover effect */
             color: #ffffff;
             padding: 10px 20px; /* Adjusted for better fit */
             border: none;
@@ -46,48 +46,59 @@
         }
     
         .container {
-        flex: 1; /* Allow the container to grow and fill available space */
-        width: 100%;
-        padding: 2rem;
-        background-color: white;
-        background-image: linear-gradient(rgba(239, 239, 241, 0.847), rgba(239, 239, 241, 0.847)), url('students.jpg');
-        background-position: center;
-        background-size: cover; /* Ensure the background image covers the entire container */
-        background-repeat: no-repeat;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for emphasis */
-        border-radius: 8px; /* Rounded corners for a modern look */
-        min-height: calc(100vh - 6rem); /* Adjust the height to ensure it covers the remaining space considering header/footer */
-        margin: 2rem auto; /* Center the container with margins */
+            flex: 1; /* Allow the container to grow and fill available space */
+            width: 90%; /* Adjusted for better spacing */
+            max-width: 1200px; /* Max width for larger screens */
+            padding: 2rem;
+            background-color: white;
+            background-image: linear-gradient(rgba(239, 239, 241, 0.8), rgba(239, 239, 241, 0.8)), url('students.jpg');
+            background-position: center;
+            background-size: cover; /* Ensure the background image covers the entire container */
+            background-repeat: no-repeat;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for emphasis */
+            border-radius: 8px; /* Rounded corners for a modern look */
+            margin: 2rem auto; /* Center the container with margins */
+            position: relative; /* For better positioning of inner elements */
         }
     
         h1 {
             text-align: center;
-            font-size: 2rem; /* Adjusted for better fit */
-            margin-bottom: 1.5rem;
-            color: #ffffff; /* Professional Blue */
+            font-size: 2.5rem; /* Adjusted for better prominence */
+            margin-bottom: 1rem; /* Reduced margin for better alignment */
+            color: #ffffff; /* White for contrast */
         }
     
         h2 {
-            font-size: 1.5rem; /* Adjusted for better fit */
-            margin-bottom: 1rem;
+            font-size: 1.8rem; /* Adjusted for better prominence */
+            margin-bottom: 0.5rem; /* Reduced margin for better alignment */
             color: #004494; /* Professional Blue */
+            text-align: left; /* Align to the left for a professional look */
         }
     
-        #AboutUs p {
+        .mission, .vision {
+            margin-bottom: 2rem; /* Spacing between sections */
+            padding: 1rem; /* Added padding for better spacing */
+            border: 1px solid #e0e0e0; /* Light border for definition */
+            border-radius: 5px; /* Rounded corners for modern look */
+            background-color: #fafafa; /* Slightly off-white background for contrast */
+        }
+    
+        .mission p, .vision p {
             text-align: left;
             line-height: 1.6; /* Improved readability */
-            margin-bottom: 1rem; /* Increased spacing for clarity */
+            margin-bottom: 0.5rem; /* Reduced spacing for better clarity */
             font-size: 1.1rem; /* Adjusted for better readability */
             color: #333333; /* Darker grey for text to reduce strain */
         }
     
         footer {
             text-align: center;
-            padding: 1.5rem 0; /* Increased padding for a more substantial footer */
+            padding: 1rem 0; /* Reduced padding for a more compact footer */
             background-color: #004494; /* Professional Blue */
             color: #ffffff; /* Ensure text is white */
             border-top: 4px solid #003377; /* Darker Blue for emphasis */
             margin-top: auto; /* Push the footer to the bottom of the page */
+            font-size: 0.9rem; /* Smaller font for footer text */
         }
     
         /* Responsive Design */
@@ -95,7 +106,6 @@
             header .home-button {
                 font-size: 0.9em; /* Adjusted for better fit on smaller screens */
                 padding: 8px 16px; /* Adjusted for better fit */
-                left: 10px;
             }
     
             .container {
@@ -104,19 +114,18 @@
             }
     
             h1 {
-                font-size: 1.8rem; /* Adjusted for smaller screens */
+                font-size: 2rem; /* Adjusted for smaller screens */
             }
     
             h2 {
-                font-size: 1.4rem; /* Adjusted for smaller screens */
+                font-size: 1.5rem; /* Adjusted for smaller screens */
             }
     
-            #AboutUs p {
+            .mission p, .vision p {
                 font-size: 1rem; /* Adjusted for smaller screens */
             }
         }
     </style>
-    
 </head>
 <body>
 
@@ -126,10 +135,17 @@
 </header>
 
 <div class="container">
-    <h2>About Us</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus mollitia ratione asperiores voluptatem perspiciatis minus nisi? Inventore molestias saepe voluptas eaque laudantium? Tempora, qui.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est incidunt optio aspernatur quia exercitationem beatae eum, sapiente sequi nihil id. Amet natus, corrupti nobis, reprehenderit deleniti tenetur adipisci corporis maxime accusamus laboriosam quasi, ipsum quaerat. Quam ratione ipsa quae consectetur alias porro asperiores modi laudantium quis, beatae dolores inventore! Aperiam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt natus facilis officia adipisci quod ipsum sequi debitis accusamus. Quia, architecto. Deserunt voluptates provident quo eius!</p>
+    <div class="mission">
+        <h2>Missions</h2>
+        <p>Our mission is to empower individuals with the skills and knowledge necessary to thrive in their chosen careers, ensuring they are equipped to meet the demands of an ever-evolving job market.</p>
+        <p>We aim to create opportunities for growth, fostering an inclusive environment where every aspiring professional can achieve their goals.</p>
+    </div>
+
+    <div class="vision">
+        <h2>Visions</h2>
+        <p>Our vision is to be the leading platform in career development, recognized for our innovative approach and commitment to excellence.</p>
+        <p>We aspire to transform the landscape of career coaching, making quality education accessible to all, and inspiring the next generation of leaders.</p>
+    </div>
 </div>
 
 <footer>

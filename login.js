@@ -27,10 +27,18 @@ submit.addEventListener("click", function(event) {
   // Inputs
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
+  const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+  if (!passwordPattern.test(password)) {
+    const messageElement = document.getElementById('message');
+    messageElement.textContent = "Error: Password must be at least 8 characters long and contain at least one uppercase letter (A-Z), one lowercase letter (a-z), one number (0-9), and one special character.";
+    messageElement.style.color = "red";
+    return; // Stop execution if the password doesn't meet the requirements
+  }
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Redirect to dashboard after successful login
+      // Redirect to dashboard after successful login`
       window.location.href = "dashboard.html";
     })
     .catch((error) => {
@@ -80,4 +88,22 @@ document.getElementById("microsoft-signin").addEventListener("click", () => {
     .catch((error) => {
       console.error('Error during sign-in: ', error);
     });
+});
+// JavaScript to toggle password visibility
+const passwordInput = document.getElementById('password');
+const eyeIcon = document.getElementById('eye-icon');
+
+eyeIcon.addEventListener('click', function() {
+  // Toggle the type attribute of the password input between 'password' and 'text'
+  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
+  
+  // Toggle the eye slash icon based on visibility
+  if (type === 'password') {
+    eyeIcon.classList.remove('fa-eye-slash');
+    eyeIcon.classList.add('fa-eye');
+  } else {
+    eyeIcon.classList.remove('fa-eye');
+    eyeIcon.classList.add('fa-eye-slash');
+  }
 });
