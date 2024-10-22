@@ -5,69 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mock Project 1</title>
     <style>
+        /* General Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(rgba(255, 0, 0, 0.1), rgba(255, 165, 0, 0.1)), url('teen-background.jpg') center/cover; /* Light background */
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
+
         header {
-            background-color: #4CAF50;
+            background-color: #d95d0e; /* Professional orange */
             color: white;
-            padding: 1rem 0;
+            padding: 1.5rem 0; /* Increased padding for a bolder look */
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
         }
+
         .container {
             max-width: 800px;
             margin: 2rem auto;
-            padding: 1rem;
+            padding: 2rem; /* Increased padding for a more spacious layout */
             background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Slightly more pronounced shadow */
+            border-radius: 8px; /* Rounded corners for a modern touch */
         }
+
         h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem; /* Larger header font */
+            margin-bottom: 1.5rem; /* Increased margin for better spacing */
         }
+
         p {
-            line-height: 1.6;
+            line-height: 1.8; /* Increased line height for readability */
+            font-size: 1.1rem; /* Slightly larger font size */
         }
+
         footer {
             text-align: center;
             padding: 1rem 0;
-            background-color: #4CAF50;
+            background-color: #d95d0e; /* Professional orange */
             color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            margin-top: auto; /* Push footer to the bottom */
         }
+
         .upload-link {
             display: inline-block;
             margin-top: 0.5rem;
-            padding: 0.5rem;
-            border: 1px solid #4CAF50;
+            padding: 0.7rem 1rem; /* Increased padding */
+            border: 2px solid #d95d0e; /* Professional orange */
             border-radius: 5px;
             text-decoration: none;
-            color: #4CAF50;
+            color: #d95d0e; /* Professional orange */
             font-size: 1rem;
+            transition: background-color 0.3s, color 0.3s; /* Transition for hover effect */
         }
+
         .upload-link:hover {
-            background-color: #4CAF50;
+            background-color: #d95d0e; /* Professional orange */
             color: white;
         }
+
         .apply-button {
-            margin-top: 1rem;
-            background-color: #4CAF50;
+            margin-top: 1.5rem; /* Increased margin for spacing */
+            background-color: #d95d0e; /* Professional orange */
             color: white;
             border: none;
-            padding: 0.5rem;
+            padding: 0.7rem 1.2rem; /* Increased padding */
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem; /* Slightly larger font size */
             text-align: center;
+            transition: background-color 0.3s, transform 0.2s; /* Added transition */
         }
+
         .apply-button:hover {
-            background-color: #45a049;
+            background-color: #c8560a; /* Darker orange for hover */
+            transform: translateY(-2px); /* Subtle lift effect on hover */
         }
     </style>
 </head>

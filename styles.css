@@ -1,200 +1,140 @@
 /* General Styles */
 body {
-    font-family: 'Lato', Arial, sans-serif;
-    background: linear-gradient(rgba(200, 200, 230, 0.7), rgba(200, 200, 230, 0.7)), url('motivation.jpg') center/cover;
-    color: #053f86;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(rgba(255, 99, 132, 0.6), rgba(65, 105, 225, 0.6)), url('teen-background.jpg') center/cover; /* Subtler pink and blue gradient */
+    color: #2c3e50; /* Dark blue-grey for better readability */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh; /* Full viewport height */
     margin: 0;
     padding: 0;
 }
 
 /* Form Container */
 .form-container {
-    width: 80%;
-    max-width: 280px;
-    padding: 12px;
-    background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 6px;
+    width: 80%; /* Use more width on smaller screens */
+    max-width: 300px; /* Reduced max width for a smaller form */
+    padding: 16px; /* Reduced padding for a more compact look */
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lighter shadow for a more professional look */
+    border-radius: 12px;
     text-align: center;
+    border-top: 5px solid #ff6347; /* Softer orange accent */
 }
 
 /* Input Styles */
 .form-group {
-    margin-bottom: 8px;
+    margin-bottom: 10px; /* Reduced margin for better spacing */
     text-align: left;
     position: relative;
 }
 
-/* Input wrapper to contain the input and the toggle button */
+/* Input wrapper for eye icon */
 .input-wrapper {
     position: relative;
 }
 
 .form-group input {
     width: 100%;
-    padding: 6px;
-    padding-right: 35px; /* Space for the eye icon */
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 0.8rem;
+    padding: 8px; /* Reduced padding for a smaller input */
+    padding-right: 40px; /* Space for the eye icon */
+    border: 2px solid #ccc;
+    border-radius: 8px; /* Slightly rounded corners */
+    font-size: 0.9rem; /* Smaller font size */
     box-sizing: border-box;
+    background-color: #f9fbfd; /* Softer light blue background */
 }
 
 .form-group input:focus {
-    border-color: #004494;
+    border-color: #ff6347; /* Softer orange for focus */
     outline: none;
 }
 
-/* Eye Icon Styling */
-.eye-toggle {
+/* Toggle password icon */
+.toggle-password {
     position: absolute;
     right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
     cursor: pointer;
-    padding: 0;
-    font-size: 1rem;
+    font-size: 1.1rem; /* Slightly smaller eye icon */
+    color: #555;
+    user-select: none; /* Prevent text selection when clicking */
+    transition: color 0.2s ease;
 }
 
-.eye-toggle i {
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.eye-toggle i:hover {
-    color: #004494;
+.toggle-password:hover {
+    color: #2c3e50; /* Dark blue-grey on hover */
 }
 
 /* Button Styles */
 button {
-    background-color: #004494;
+    background-color: #ff6347; /* Softer orange button */
     color: #fff;
-    padding: 7px 10px;
+    padding: 8px; /* Reduced padding for smaller button */
     border: none;
-    border-radius: 3px;
+    border-radius: 8px;
     width: 100%;
-    margin-top: 8px;
-    font-size: 0.85rem;
+    font-size: 0.9rem; /* Smaller font size */
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+    margin-top: 8px; /* Reduced margin for buttons */
 }
 
 button:hover {
-    background-color: #003370;
-    transform: translateY(-2px);
+    background-color: #ff7f50; /* Lighter orange on hover */
+    transform: translateY(-1px); /* Smaller lift effect */
 }
 
 /* Home Button */
 .home-button {
-    background-color: #004494;
+    background-color: #32cd32; /* Bright green */
     color: #fff;
-    padding: 7px 10px;
+    padding: 8px; /* Reduced padding */
     border: none;
-    border-radius: 3px;
-    width: 100px;
+    border-radius: 8px;
+    width: 70%;
     margin: 10px auto 0;
-    text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    font-size: 0.8rem;
-    font-weight: bold;
+    font-size: 0.8rem; /* Smaller font size */
 }
 
 .home-button:hover {
-    background-color: #003370;
-    transform: translateY(-2px);
+    background-color: #3cb371; /* Softer green on hover */
 }
 
 /* Error Message */
 #message {
     color: red;
-    margin-top: 10px;
-    font-size: 0.85rem;
+    margin-top: 8px; /* Reduced margin */
+    font-size: 0.8rem; /* Smaller font size */
 }
 
-#google-login {
-    background-color: white;
-    border: 1px solid #ddd;
+/* Google Login/Register Buttons */
+#google-login, #google-register {
+    background-color: #fff;
+    border: 2px solid #ddd;
     color: #555;
-    padding: 7px 10px;
-    font-size: 16px;
+    padding: 8px; /* Reduced padding */
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 300px;
-    margin: 10px 0 auto;
+    margin-top: 10px; /* Reduced margin */
     cursor: pointer;
 }
 
-#google-login .google-logo {
-    width: 30px;
-    height: 20px;
-    margin-right: 10px;
+#google-login .google-logo, #google-register .google-logo {
+    width: 30px; /* Slightly smaller logo */
+    height: 20px; /* Slightly smaller logo */
+    margin-right: 5px; /* Reduced margin */
 }
 
-#google-login:hover {
-    background-color: #f1f1f1;
+#google-login:hover, #google-register:hover {
+    background-color: #f0f0f0;
 }
 
-#google-login:focus {
+#google-login:focus, #google-register:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    box-shadow: 0 0 5px rgba(255, 140, 0, 0.8); /* Softer orange focus glow */
 }
-
-/* Register Button Styles */
-.register-button {
-    background-color: #004494;
-    color: #fff;
-    padding: 7px 10px;
-    border: none;
-    border-radius: 3px;
-    width: 100%;
-    margin-top: 8px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.register-button:hover {
-    background-color: #003370;
-    transform: translateY(-2px);
-}
-#google-register {
-    background-color: white;
-    border: 1px solid #ddd;
-    color: #555;
-    padding: 7px 10px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 300px;
-    margin: 10px 0 auto;
-    cursor: pointer;
-  }
-  
-  #google-register .google-logo {
-    width: 30px;
-    height: 20px;
-    margin-right: 10px;
-  }
-  
-  #google-register:hover {
-    background-color: #f1f1f1;
-  }
-  
-  #google-register:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-  }
-  

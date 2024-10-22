@@ -5,96 +5,185 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assistance - Contact Us</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #004494;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        button {
-            background-color: #004494; /* Professional Blue */
-            color: #ffffff;
-            padding: 8px 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9em;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+        /* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-        button:hover {
-            background-color: #003370; /* Darker Blue */
-            transform: translateY(-2px);
-        }
-        
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .contact-method {
-            margin-bottom: 2rem;
-        }
-        .contact-method h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .contact-method p {
-            line-height: 1.6;
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-        }
-        .contact-form label {
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-        .contact-form input, .contact-form textarea {
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-            width: 100%;
-            box-sizing: border-box;
-            font-size: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .contact-form input[type="submit"] {
-            background-color: #004494;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            border-radius: 5px;
-            padding: 0.5rem;
-        }
-        .contact-form input[type="submit"]:hover {
-            background-color: #004494;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            background-color: #004494;
-            color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(45deg, #ff6b81, #ff4757, #ffa502);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+    animation: textGlow 2s infinite alternate;
+}
+
+/* Text glow animation */
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 10px #ff4757, 0 0 20px #ff6b81, 0 0 30px #ffa502;
+    }
+    to {
+        text-shadow: 0 0 20px #ffa502, 0 0 30px #ff4757, 0 0 40px #ff6b81;
+    }
+}
+
+/* Button Styles */
+button.home-button {
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+button.home-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+button.home-button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+button.home-button:hover {
+    background-color: #ffa502;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+/* Contact Methods */
+.contact-method {
+    margin-bottom: 2rem;
+}
+
+.contact-method h2 {
+    font-size: 1.5rem;
+    color: #3742fa;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.contact-method p {
+    line-height: 1.6;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Contact Form Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #f1f2f6, #dfe4ea);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form:hover {
+    background: linear-gradient(135deg, #dfe4ea, #f1f2f6);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form input[type="submit"] {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #ffa502;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #ff4757;
+    color: white;
+    box-shadow: 0 -6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .contact-method h2 {
+        font-size: 1.25rem;
+    }
+
+    .contact-form {
+        padding: 15px;
+    }
+}
     </style>
 </head>
 <body>

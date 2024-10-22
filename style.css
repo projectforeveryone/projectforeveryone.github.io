@@ -1,267 +1,275 @@
 /* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f8ff;
+  color: #333;
   margin: 0;
   padding: 0;
-  color: #333;
-  line-height: 1.6; /* Increased line-height for better readability */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensure body takes full height */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Full-Screen Container */
 .container {
-  width: 100%;
-  min-height: 100vh;
-  padding: 20px; /* Increased padding for a more spacious feel */
-  background: linear-gradient(rgba(239, 239, 241, 0.85), rgba(239, 239, 241, 0.85)), url('career.jfif') center/cover;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* Header Styles */
 header {
+  background: linear-gradient(45deg, #ff6b81, #ff4757, #ffa502);
+  color: white;
+  padding: 20px;
   text-align: center;
-  background-color: #004494; /* Main brand color */
-  color: #fff;
-  padding: 15px; /* Adjusted padding */
-  border-radius: 8px; /* Slightly larger border-radius */
-  margin-bottom: 20px; /* Increased margin for separation */
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-header .logo {
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  max-height: 40px;
-}
-
-header h1 {
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
   margin: 0;
-  font-size: 1.8em; /* Increased for better visibility */
-  font-weight: bold;
+  animation: textGlow 2s infinite alternate;
+}
+
+/* Text glow animation */
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 10px #ff4757, 0 0 20px #ff6b81, 0 0 30px #ffa502;
+  }
+  to {
+    text-shadow: 0 0 20px #ffa502, 0 0 30px #ff4757, 0 0 40px #ff6b81;
+  }
 }
 
 /* Navigation Styles */
 nav ul {
   list-style: none;
   padding: 0;
+  margin: 20px 0 0;
   display: flex;
   justify-content: center;
-  margin: 10px 0 0;
+  gap: 20px;
 }
 
 nav ul li {
-  margin: 0 12px; /* Increased spacing between items */
+  display: inline-block;
 }
 
 nav ul li a {
   text-decoration: none;
   color: #fff;
-  background-color: #004494; /* Consistent with header */
-  padding: 8px 12px; /* Increased padding */
-  border-radius: 6px; /* Larger border-radius for buttons */
-  font-size: 0.9em; /* Increased font size for better readability */
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #1e90ff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+nav ul li a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+nav ul li a:hover::before {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 nav ul li a:hover {
-  background-color: #003370; /* Darker blue on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow effect */
+  background-color: #ffa502;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
 }
 
 /* Section Styles */
 .section {
-  margin: 20px 0;
+  margin: 50px 0;
+  padding: 30px;
+  background: linear-gradient(135deg, #f1f2f6, #dfe4ea);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+  background: linear-gradient(135deg, #dfe4ea, #f1f2f6);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
+  font-size: 2rem;
+  color: #3742fa;
   text-align: center;
-  color: #004494; /* Main brand color */
-  font-size: 1.5em; /* Increased for better visibility */
-  margin-bottom: 10px;
-  font-weight: bold; /* Added bold for emphasis */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-#about p,
-#assistance p {
+p {
+  font-size: 1.2rem;
+  line-height: 1.8;
   text-align: center;
-  font-size: 1em; /* Increased for better readability */
-  color: #333;
-  line-height: 1.6; /* Adjusted for better readability */
-  max-width: 800px; /* Increased max-width for larger screens */
-  margin: 0 auto;
 }
 
-/* Assistance Styles */
-#assistance p {
-  font-size: 0.9em; /* Adjusted for better readability */
+a {
+  color: #ff4757;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.3s ease;
 }
 
-/* FAQ Styles */
+a:hover {
+  color: #ffa502;
+}
+
+/* FAQ Section */
 .faq-item {
-  margin: 12px 0;
-  padding: 10px;
-  background-color: #fff; /* Ensure white background for clarity */
-  border-left: 5px solid #004494; /* Thicker border for emphasis */
-  border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+  background-color: #f1f2f6;
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .faq-item h3 {
-  color: #004494;
-  margin-bottom: 6px;
-  font-size: 1.1em; /* Increased for better visibility */
-  font-weight: bold; /* Bold for emphasis */
+  font-size: 1.5rem;
+  color: #2f3542;
+  cursor: pointer;
+  position: relative;
+  padding-left: 20px;
+}
+
+.faq-item h3:hover {
+  color: #ffa502;
+}
+
+.faq-item h3::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.faq-item.active h3::before {
+  transform: rotate(90deg);
 }
 
 .faq-item p {
-  text-align: left;
-  color: #555;
-  line-height: 1.4;
-  font-size: 0.9em; /* Increased for better readability */
+  display: none;
+  margin: 10px 0;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* Form Styles */
-.form-group {
-  margin-bottom: 15px; /* Increased margin for better spacing */
-}
-
-.form-group label {
+.faq-item.active p {
   display: block;
-  margin-bottom: 6px;
-  color: #004494; /* Main brand color */
-  font-weight: bold;
+  opacity: 1;
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 10px; /* Increased padding for comfort */
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 0.9em; /* Increased font size for better readability */
-  background-color: #fff;
-  color: #333;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease; /* Smooth transition on focus */
+.faq-item:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #004494; /* Main brand color on focus */
+/* Animations and Hover Effects */
+.faq-item h3:hover {
+  transform: translateX(5px);
 }
 
-/* Button Styles */
-button {
-  background-color: #004494; /* Main brand color */
-  color: #fff;
-  padding: 10px 15px; /* Increased padding */
+.faq-item.active h3 {
+  color: #ff6b81;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #2f3542;
+  color: #f1f2f6;
+}
+
+body.dark-mode header {
+  background: linear-gradient(45deg, #3742fa, #5352ed);
+}
+
+body.dark-mode nav ul li a {
+  background-color: #3742fa;
+}
+
+body.dark-mode nav ul li a:hover {
+  background-color: #5352ed;
+}
+
+body.dark-mode .section {
+  background: linear-gradient(135deg, #57606f, #2f3542);
+  color: #f1f2f6;
+}
+
+body.dark-mode .faq-item {
+  background-color: #57606f;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .faq-item h3 {
+  color: #f1f2f6;
+}
+
+body.dark-mode .faq-item.active h3 {
+  color: #ffa502;
+}
+
+body.dark-mode a {
+  color: #ffa502;
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ff4757;
+  color: white;
   border: none;
-  border-radius: 6px; /* Larger border-radius for comfort */
+  padding: 10px 15px;
+  border-radius: 20px;
   cursor: pointer;
-  font-size: 1em; /* Increased for better visibility */
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #003370; /* Darker blue on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow effect */
+.dark-mode-toggle:hover {
+  background-color: #ffa502;
 }
 
-/* Dashboard Styles */
-.dashboard-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px; /* Increased gap for better spacing */
-  width: 100%;
-}
-
-/* Responsive Design */
+/* Media Queries */
 @media (max-width: 768px) {
-  header h1 {
-      font-size: 1.5em; /* Adjusted for smaller screens */
-  }
-
   nav ul {
-      flex-direction: column;
-  }
-
-  nav ul li {
-      margin: 6px 0; /* Adjusted for smaller screens */
+    flex-direction: column;
+    gap: 10px;
   }
 
   .section {
-      margin: 15px 0;
+    padding: 20px;
   }
 
-  h2 {
-      font-size: 1.3em; /* Adjusted for smaller screens */
+  h1 {
+    font-size: 2rem;
   }
 
-  #about p,
-  #assistance p {
-      font-size: 0.9em; /* Adjusted for smaller screens */
-      line-height: 1.4; /* Adjusted for readability */
-  }
-
-  .faq-item {
-      padding: 8px;
-  }
-
-  .form-group input,
-  .form-group textarea {
-      font-size: 0.9em; /* Adjusted for smaller screens */
-  }
-
-  button {
-      font-size: 0.9em; /* Adjusted for smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  header h1 {
-      font-size: 1.2em; /* Adjusted for smaller screens */
-  }
-
-  .container {
-      padding: 10px; /* Adjusted padding for smaller screens */
-  }
-
-  .section {
-      margin: 8px 0;
-  }
-
-  h2 {
-      font-size: 1.1em; /* Adjusted for smaller screens */
-  }
-
-  #about p,
-  #assistance p {
-      font-size: 0.8em; /* Adjusted for smaller screens */
-  }
-
-  .faq-item {
-      padding: 6px;
-  }
-
-  .form-group input,
-  .form-group textarea {
-      font-size: 0.8em; /* Adjusted for smaller screens */
-  }
-
-  button {
-      font-size: 0.85em; /* Adjusted for smaller screens */
+  p {
+    font-size: 1rem;
   }
 }

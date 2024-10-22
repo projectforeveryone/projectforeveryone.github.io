@@ -89,21 +89,3 @@ document.getElementById("microsoft-signin").addEventListener("click", () => {
       console.error('Error during sign-in: ', error);
     });
 });
-// JavaScript to toggle password visibility
-const passwordInput = document.getElementById('password');
-const eyeIcon = document.getElementById('eye-icon');
-
-eyeIcon.addEventListener('click', function() {
-  // Toggle the type attribute of the password input between 'password' and 'text'
-  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-  passwordInput.setAttribute('type', type);
-  
-  // Toggle the eye slash icon based on visibility
-  if (type === 'password') {
-    eyeIcon.classList.remove('fa-eye-slash');
-    eyeIcon.classList.add('fa-eye');
-  } else {
-    eyeIcon.classList.remove('fa-eye');
-    eyeIcon.classList.add('fa-eye-slash');
-  }
-});

@@ -138,4 +138,24 @@ document.getElementById('uploadForm')?.addEventListener('submit', async function
       }, 2000); // 2 seconds delay for a better user experience
     }
   });
-    
+
+  // Select all FAQ items
+  const faqItems = document.querySelectorAll('.faq-item h3');
+
+  faqItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const parent = item.parentElement;
+
+      // Toggle 'active' class on the clicked FAQ item
+      parent.classList.toggle('active');
+
+      // Toggle visibility of the answer
+      const answer = parent.querySelector('p');
+      if (parent.classList.contains('active')) {
+        answer.style.display = 'block';
+      } else {
+        answer.style.display = 'none';
+      }
+    });
+  });
+
