@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mock Assessment Centre Scheduler</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background: linear-gradient(to right, red, orange);
+        color: white;
+      }
+      .container {
+        max-width: 450px;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+      }
+      label,
+      input,
+      select,
+      button {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+      }
+      input,
+      select,
+      button {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+      }
+      button {
+        background: white;
+        color: black;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      button:hover {
+        background: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Mock Assessment Centre Scheduler</h2>
+
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" placeholder="Enter your full name" />
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" placeholder="Enter your email" />
+
+      <label for="specialization">Choose your field of specialization:</label>
+      <select id="specialization" onchange="updateDates()">
+        <option value="">-- Select Field --</option>
+        <option value="technology">Technology</option>
+        <option value="finance">Finance</option>
+        <option value="marketing">Marketing</option>
+        <option value="consulting">Consulting</option>
+      </select>
+
+      <label for="assessment-date">Select Your Assessment Date:</label>
+      <select id="assessment-date">
+        <option value="">-- Select Date --</option>
+      </select>
+
+      <button onclick="submitForm()">Submit</button>
+    </div>
+
+    <script>
+      // Mock assessment dates per specialization (same date for all activities)
+      const assessmentDates = {
+        technology: ["2025-03-05", "2025-03-12", "2025-03-19"],
+        finance: ["2025-03-07", "2025-03-14", "2025-03-21"],
+        marketing: ["2025-03-08", "2025-03-15", "2025-03-22"],
+        consulting: ["2025-03-09", "2025-03-16", "2025-03-23"],
+      };
+
+      function updateDates() {
+        const specialization = document.getElementById("specialization").value;
+        const dateSelect = document.getElementById("assessment-date");
+
+        // Clear previous options
+        dateSelect.innerHTML = '<option value="">-- Select Date --</option>';
+
+        // Populate new dates based on specialization
+        if (specialization && assessmentDates[specialization]) {
+          assessmentDates[specialization].forEach((date) => {
+            const option = document.createElement("option");
+            option.value = date;
+            option.textContent = date;
+            dateSelect.appendChild(option);
+          });
+        }
+      }
+
+      function submitForm() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const specialization = document.getElementById("specialization").value;
+        const assessmentDate = document.getElementById("assessment-date").value;
+
+        if (!name || !email || !specialization || !assessmentDate) {
+          alert("Please fill in all fields before submitting.");
+          return;
+        }
+
+        alert(`Assessment Centre Scheduled!\n
+        Name: ${name}
+        Email: ${email}
+        Specialization: ${specialization}
+        Date: ${assessmentDate}
+        - Individual Task
+        - Group Task
+        - Mini Interview`);
+      }
+    </script>
+  </body>
+</html>
