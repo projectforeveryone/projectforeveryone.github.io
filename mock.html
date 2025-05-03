@@ -46,53 +46,123 @@
   <body>
     <div class="container">
       <h2>Mock Assessment Centre Scheduler</h2>
+      <form id="assessments" onsubmit="event.preventDefault(); submitForm();">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your full name" />
 
-      <label for="name">Full Name:</label>
-      <input type="text" id="name" placeholder="Enter your full name" />
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" placeholder="Enter your email" />
 
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" placeholder="Enter your email" />
+        <label for="specialization">Choose your field of specialization:</label>
+        <select id="specialization" onchange="updateDateTimeSlots()">
+          <option value="">-- Select Field --</option>
+          <option value="technology">Technology</option>
+          <option value="finance">Finance</option>
+          <option value="marketing">Marketing</option>
+          <option value="consulting">Consulting</option>
+        </select>
 
-      <label for="specialization">Choose your field of specialization:</label>
-      <select id="specialization" onchange="updateDates()">
-        <option value="">-- Select Field --</option>
-        <option value="technology">Technology</option>
-        <option value="finance">Finance</option>
-        <option value="marketing">Marketing</option>
-        <option value="consulting">Consulting</option>
-      </select>
+        <label for="assessment-date">Select Your Assessment Date:</label>
+        <select id="assessment-date">
+          <option value="">-- Select Date --</option>
+        </select>
 
-      <label for="assessment-date">Select Your Assessment Date:</label>
-      <select id="assessment-date">
-        <option value="">-- Select Date --</option>
-      </select>
+        <label for="assessment-time">Select Your Time Slot:</label>
+        <select id="assessment-time">
+          <option value="">-- Select Time --</option>
+        </select>
 
-      <button onclick="submitForm()">Submit</button>
+        <button type="submit">Submit</button>
+      </form>
     </div>
 
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
     <script>
-      // Mock assessment dates per specialization (same date for all activities)
-      const assessmentDates = {
-        technology: ["2025-03-05", "2025-03-12", "2025-03-19"],
-        finance: ["2025-03-07", "2025-03-14", "2025-03-21"],
-        marketing: ["2025-03-08", "2025-03-15", "2025-03-22"],
-        consulting: ["2025-03-09", "2025-03-16", "2025-03-23"],
+      const firebaseConfig = {
+        apiKey: "AIzaSyAWRK7baaefbALWIfMxBV9qiS1OVJcZNEc",
+        authDomain: "assessment-centre-7cc3c.firebaseapp.com",
+        databaseURL:
+          "https://assessment-centre-7cc3c-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "assessment-centre-7cc3c",
+        storageBucket: "assessment-centre-7cc3c.appspot.com",
+        messagingSenderId: "662876028707",
+        appId: "1:662876028707:web:a7b18c7c298c031a639696",
       };
 
-      function updateDates() {
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
+      const assessmentDB = db.ref("assessments");
+      const bookedSlots = new Set();
+
+      assessmentDB.on("value", (snapshot) => {
+        bookedSlots.clear();
+        const data = snapshot.val();
+        for (let key in data) {
+          if (data[key].slot) {
+            bookedSlots.add(data[key].slot);
+          }
+        }
+        updateDateTimeSlots();
+      });
+
+      const assessmentDates = {
+        technology: ["2025-05-10", "2025-05-17", "2025-05-24", "2025-05-31"],
+        finance: ["2025-05-10", "2025-05-17", "2025-05-24", "2025-05-31"],
+        marketing: ["2025-05-10", "2025-05-17", "2025-05-24", "2025-05-31"],
+        consulting: ["2025-05-10", "2025-05-17", "2025-05-24", "2025-05-31"],
+      };
+
+      const assessmentTimes = {
+        technology: generateTimeSlots(8, 9),
+        finance: generateTimeSlots(10, 11),
+        marketing: generateTimeSlots(13, 14),
+        consulting: generateTimeSlots(15, 16),
+      };
+
+      function generateTimeSlots(startHour, endHour) {
+        const slots = [];
+        for (let hour = startHour; hour <= endHour; hour++) {
+          for (let mins of [0, 15, 30, 45]) {
+            const h = hour.toString().padStart(2, "0");
+            const m = mins.toString().padStart(2, "0");
+            slots.push(`${h}:${m}`);
+          }
+        }
+        return slots;
+      }
+
+      function formatTime(time) {
+        const [hourStr, minute] = time.split(":");
+        const hour = parseInt(hourStr);
+        const suffix = hour >= 12 ? "PM" : "AM";
+        const displayHour = hour % 12 || 12;
+        return `${displayHour}:${minute} ${suffix}`;
+      }
+
+      function updateDateTimeSlots() {
         const specialization = document.getElementById("specialization").value;
         const dateSelect = document.getElementById("assessment-date");
+        const timeSelect = document.getElementById("assessment-time");
 
-        // Clear previous options
         dateSelect.innerHTML = '<option value="">-- Select Date --</option>';
+        timeSelect.innerHTML = '<option value="">-- Select Time --</option>';
 
-        // Populate new dates based on specialization
         if (specialization && assessmentDates[specialization]) {
           assessmentDates[specialization].forEach((date) => {
             const option = document.createElement("option");
             option.value = date;
             option.textContent = date;
             dateSelect.appendChild(option);
+          });
+
+          assessmentTimes[specialization].forEach((time) => {
+            const option = document.createElement("option");
+            option.value = time;
+            option.textContent = formatTime(time);
+            timeSelect.appendChild(option);
           });
         }
       }
@@ -101,21 +171,30 @@
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const specialization = document.getElementById("specialization").value;
-        const assessmentDate = document.getElementById("assessment-date").value;
+        const date = document.getElementById("assessment-date").value;
+        const time = document.getElementById("assessment-time").value;
+        const slot = `${date} ${time}`;
 
-        if (!name || !email || !specialization || !assessmentDate) {
+        if (!name || !email || !specialization || !date || !time) {
           alert("Please fill in all fields before submitting.");
           return;
         }
 
-        alert(`Assessment Centre Scheduled!\n
-        Name: ${name}
-        Email: ${email}
-        Specialization: ${specialization}
-        Date: ${assessmentDate}
-        - Individual Task
-        - Group Task
-        - Mini Interview`);
+        if (bookedSlots.has(slot)) {
+          alert("Sorry, this slot is already booked. Please choose another.");
+          updateDateTimeSlots();
+          return;
+        }
+
+        const newRef = assessmentDB.push();
+        newRef.set({
+          name,
+          email,
+          specialization,
+          slot,
+        });
+
+        window.location.href = "confirmation2.html";
       }
     </script>
   </body>

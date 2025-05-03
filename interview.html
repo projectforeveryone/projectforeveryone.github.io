@@ -41,80 +41,165 @@
       button:hover {
         background: #ddd;
       }
+
+      .alert {
+        width: 100%;
+        background-color: #2eec15;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 900;
+        display: none;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h2>Mock Interview Scheduler</h2>
+      <form action="" id="interview">
+        <div class="alert">Your booking has been sent</div>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your full name" />
 
-      <label for="name">Full Name:</label>
-      <input type="text" id="name" placeholder="Enter your full name" />
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" placeholder="Enter your email" />
 
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" placeholder="Enter your email" />
+        <label for="specialization">Choose your field of specialization:</label>
+        <select id="specialization" onchange="updateDateTimeSlots()">
+          <option value="">-- Select Field --</option>
+          <option value="technology">Technology</option>
+          <option value="finance">Finance</option>
+          <option value="marketing">Marketing</option>
+          <option value="consulting">Consulting</option>
+        </select>
 
-      <label for="specialization">Choose your field of specialization:</label>
-      <select id="specialization" onchange="updateDates()">
-        <option value="">-- Select Field --</option>
-        <option value="technology">Technology</option>
-        <option value="finance">Finance</option>
-        <option value="marketing">Marketing</option>
-        <option value="consulting">Consulting</option>
-      </select>
+        <label for="slot">Select an interview slot (date & time):</label>
+        <select id="slot">
+          <option value="">-- Select Slot --</option>
+        </select>
 
-      <label for="date">Select an interview date:</label>
-      <select id="date">
-        <option value="">-- Select Date --</option>
-      </select>
-
-      <button onclick="submitForm()">Submit</button>
+        <button type="button" onclick="submitForm()">Submit</button>
+      </form>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script>
-      // Mock interview dates per specialization
-      const interviewDates = {
-        technology: ["2025-03-05", "2025-03-12", "2025-03-19"],
-        finance: ["2025-03-07", "2025-03-14", "2025-03-21"],
-        marketing: ["2025-03-08", "2025-03-15", "2025-03-22"],
-        consulting: ["2025-03-09", "2025-03-16", "2025-03-23"],
+      // 1. Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCwELk02ugyCFz7Ko-ZOx7qiFLDaynRNX8",
+        authDomain: "mock-interview-5fcc6.firebaseapp.com",
+        databaseURL:
+          "https://mock-interview-5fcc6-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "mock-interview-5fcc6",
+        storageBucket: "mock-interview-5fcc6.appspot.com",
+        messagingSenderId: "58994858034",
+        appId: "1:58994858034:web:4234665b7e9f302750842b",
       };
 
-      function updateDates() {
+      // 2. Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
+      const interviewDB = db.ref("interviews");
+
+      const bookedSlots = new Set();
+
+      // 3. Fetch booked slots in real time
+      interviewDB.on("value", (snapshot) => {
+        bookedSlots.clear();
+        const data = snapshot.val();
+        for (let key in data) {
+          if (data[key].slot) {
+            bookedSlots.add(data[key].slot);
+          }
+        }
+        updateDateTimeSlots();
+      });
+
+      const interviewDates = {
+        technology: [
+          "2025-04-22",
+          "2025-05-05",
+          "2025-05-12",
+          "2025-05-19",
+          "2025-05-26",
+        ],
+        finance: ["2025-05-06", "2025-05-13", "2025-05-20", "2025-05-27"],
+        marketing: ["2025-05-07", "2025-05-14", "2025-05-21", "2025-05-28"],
+        consulting: ["2025-05-08", "2025-05-15", "2025-05-22", "2025-05-29"],
+      };
+
+      const interviewTimes = [
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "21:00",
+      ];
+
+      function updateDateTimeSlots() {
         const specialization = document.getElementById("specialization").value;
-        const dateSelect = document.getElementById("date");
+        const slotSelect = document.getElementById("slot");
+        slotSelect.innerHTML = '<option value="">-- Select Slot --</option>';
 
-        // Clear previous options
-        dateSelect.innerHTML = '<option value="">-- Select Date --</option>';
-
-        // Populate new dates based on specialization
         if (specialization && interviewDates[specialization]) {
           interviewDates[specialization].forEach((date) => {
-            const option = document.createElement("option");
-            option.value = date;
-            option.textContent = date;
-            dateSelect.appendChild(option);
+            interviewTimes.forEach((time) => {
+              const slotValue = `${date} ${time}`;
+              if (!bookedSlots.has(slotValue)) {
+                const option = document.createElement("option");
+                option.value = slotValue;
+                option.textContent = `${date} at ${formatTime(time)}`;
+                slotSelect.appendChild(option);
+              }
+            });
           });
         }
+      }
+
+      function formatTime(time) {
+        const [hour, minute] = time.split(":");
+        const hourNum = parseInt(hour);
+        const suffix = hourNum >= 12 ? "PM" : "AM";
+        const displayHour = hourNum % 12 || 12;
+        return `${displayHour}:${minute} ${suffix}`;
       }
 
       function submitForm() {
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const specialization = document.getElementById("specialization").value;
-        const date = document.getElementById("date").value;
+        const slot = document.getElementById("slot").value;
 
-        if (!name || !email || !specialization || !date) {
+        if (!name || !email || !specialization || !slot) {
           alert("Please fill in all fields before submitting.");
           return;
         }
 
-        alert(
-          `Mock Interview Scheduled!\n
-          Name: ${name}
-          Email: ${email}
-          Field: ${specialization}
-          Date: ${date}`
-        );
+        if (bookedSlots.has(slot)) {
+          alert(
+            "Sorry, this slot has already been booked. Please choose another."
+          );
+          updateDateTimeSlots();
+          return;
+        }
+
+        const newRef = interviewDB.push();
+        newRef.set({
+          name,
+          email,
+          specialization,
+          slot,
+        });
+
+        //redirect to confirmation page
+        window.location.href = "confirmation.html";
       }
     </script>
   </body>
