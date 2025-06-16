@@ -182,21 +182,50 @@
           return;
         }
 
-        if (bookedSlots.has(slot)) {
-          alert(
-            "Sorry, this slot has already been booked. Please choose another."
-          );
-          updateDateTimeSlots();
-          return;
-        }
+        // Step 1: Check if this email has already booked
+        interviewDB
+          .orderByChild("email")
+          .equalTo(email)
+          .once("value")
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              alert("You have already booked a slot.");
+              return;
+            }
 
-        const newRef = interviewDB.push();
-        newRef.set({
-          name,
-          email,
-          specialization,
-          slot,
-        });
+            // Step 2: Check if slot is still available
+            interviewDB
+              .orderByChild("slot")
+              .equalTo(slot)
+              .once("value")
+              .then((slotSnapshot) => {
+                if (slotSnapshot.exists()) {
+                  alert(
+                    "Sorry, this slot has already been booked. Please choose another."
+                  );
+                  updateDateTimeSlots();
+                  return;
+                }
+
+                // Step 3: Safe to proceed with booking
+                const newRef = interviewDB.push();
+                newRef
+                  .set({
+                    name,
+                    email,
+                    specialization,
+                    slot,
+                  })
+                  .then(() => {
+                    // Redirect on success
+                    window.location.href = "confirmation.html";
+                  })
+                  .catch((error) => {
+                    alert("Error saving your booking. Please try again.");
+                    console.error(error);
+                  });
+              });
+          });
 
         //redirect to confirmation page
         window.location.href = "confirmation.html";

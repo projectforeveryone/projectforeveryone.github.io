@@ -1,220 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects - Key Projects</title>
     <style>
-        /* General Styles */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f0f8ff;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+      /* General Styles */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f0f8ff;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
 
-/* Header Styles */
-header {
-    background: linear-gradient(45deg, #ff6b81, #ff4757, #ffa502);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 0 0 30px 30px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+      /* Header Styles */
+      header {
+        background: linear-gradient(45deg, #ff6b81, #ff4757, #ffa502);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 0 0 30px 30px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
 
-h1 {
-    font-size: 2.5rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin: 0;
-    animation: textGlow 2s infinite alternate;
-}
+      h1 {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin: 0;
+        animation: textGlow 2s infinite alternate;
+      }
 
-/* Text Glow Animation */
-@keyframes textGlow {
-    from {
-        text-shadow: 0 0 10px #ff4757, 0 0 20px #ff6b81, 0 0 30px #ffa502;
-    }
-    to {
-        text-shadow: 0 0 20px #ffa502, 0 0 30px #ff4757, 0 0 40px #ff6b81;
-    }
-}
+      /* Text Glow Animation */
+      @keyframes textGlow {
+        from {
+          text-shadow: 0 0 10px #ff4757, 0 0 20px #ff6b81, 0 0 30px #ffa502;
+        }
+        to {
+          text-shadow: 0 0 20px #ffa502, 0 0 30px #ff4757, 0 0 40px #ff6b81;
+        }
+      }
 
-/* Button Styles */
-button {
-    background-color: #ff4757;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 30px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+      /* Button Styles */
+      button {
+        background-color: #ff4757;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 30px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
 
-button:hover {
-    background-color: #ffa502;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-    transform: scale(1.1);
-}
+      button:hover {
+        background-color: #ffa502;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        transform: scale(1.1);
+      }
 
-/* Search Bar */
-input.search-bar {
-    margin-bottom: 1.5rem;
-    padding: 0.75rem;
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
+      /* Search Bar */
+      input.search-bar {
+        margin-bottom: 1.5rem;
+        padding: 0.75rem;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
 
-/* Project Styles */
-.project {
-    background: linear-gradient(135deg, #f1f2f6, #dfe4ea);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 1.5rem;
-}
+      /* Project Styles */
+      .project {
+        background: linear-gradient(135deg, #f1f2f6, #dfe4ea);
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 1.5rem;
+      }
 
-.project:hover {
-    background: linear-gradient(135deg, #dfe4ea, #f1f2f6);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-}
+      .project:hover {
+        background: linear-gradient(135deg, #dfe4ea, #f1f2f6);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      }
 
-.project h3 {
-    font-size: 1.5rem;
-    color: #ff4757;
-    margin-bottom: 0.75rem;
-}
+      .project h3 {
+        font-size: 1.5rem;
+        color: #ff4757;
+        margin-bottom: 0.75rem;
+      }
 
-.project p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #555;
-}
+      .project p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #555;
+      }
 
-/* Project Links */
-.project a {
-    color: #ff4757;
-    font-weight: bold;
-    text-decoration: underline;
-    transition: color 0.3s ease;
-}
+      /* Project Links */
+      .project a {
+        color: #ff4757;
+        font-weight: bold;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+      }
 
-.project a:hover {
-    color: #ffa502;
-}
+      .project a:hover {
+        color: #ffa502;
+      }
 
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background-color: #ff4757;
-    color: white;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
+      /* Footer Styles */
+      footer {
+        text-align: center;
+        padding: 1rem 0;
+        background-color: #ff4757;
+        color: white;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
     </style>
     <script>
-        function searchProjects() {
-            var input, filter, container, projects, project, title, i, txtValue;
-            input = document.getElementById('searchInput');
-            filter = input.value.toLowerCase();
-            container = document.getElementById('projectContainer');
-            projects = container.getElementsByClassName('project');
+      function searchProjects() {
+        var input, filter, container, projects, project, title, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toLowerCase();
+        container = document.getElementById("projectContainer");
+        projects = container.getElementsByClassName("project");
 
-            for (i = 0; i < projects.length; i++) {
-                project = projects[i];
-                title = project.getElementsByTagName("h3")[0];
-                txtValue = title.textContent || title.innerText;
-                if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                    project.style.display = "";
-                } else {
-                    project.style.display = "none";
-                }
-            }
+        for (i = 0; i < projects.length; i++) {
+          project = projects[i];
+          title = project.getElementsByTagName("h3")[0];
+          txtValue = title.textContent || title.innerText;
+          if (txtValue.toLowerCase().indexOf(filter) > -1) {
+            project.style.display = "";
+          } else {
+            project.style.display = "none";
+          }
         }
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <h1>Our Projects</h1>
+      <button class="home-button" onclick="window.location.href='index.html'">
+        Home
+      </button>
+    </header>
 
-<header>
-    <h1>Our Projects</h1>
-    <button class="home-button" onclick="window.location.href='index.html'">Home</button>
-</header>
+    <div class="container">
+      <h2>Key Projects</h2>
+      <input
+        type="text"
+        id="searchInput"
+        class="search-bar"
+        onkeyup="searchProjects()"
+        placeholder="Search for projects..."
+      />
 
-<div class="container">
-    <h2>Key Projects</h2>
-    <input type="text" id="searchInput" class="search-bar" onkeyup="searchProjects()" placeholder="Search for projects...">
-
-    <div id="projectContainer">
+      <div id="projectContainer">
         <div class="project">
-            <h3><a href="mock-project-1.html">Bootcamps with General Assembly</a></h3>
-            <p>General Assembly's bootcamps provide hands-on training in tech skills, preparing students for careers in coding, data, design, and digital marketing.</p>
-        </div>
-
-        <div class="project">
-            <h3><a href="mock-project-2.html">Stories about General Assembly</a></h3>
-            <p>General Assembly Stories showcases real-life experiences of students and alumni, highlighting their journeys, career changes, and successes after completing GA’s bootcamps.</p>
-        </div>
-
-        <div class="project">
-            <h3><a href="mock-project-3.html">Short-course - Javascript Development with General Assembly</a></h3>
-            <p>General Assembly's JavaScript Development short course teaches essential programming skills, focusing on building dynamic, interactive web applications.</p>
-        </div>
-
-        <div class="project">
-            <h3><a href="project-4.html">Short-course - Python with General Assembly</a></h3>
-            <p>General Assembly's Python short course teaches essential programming skills, covering core concepts and practical applications in data analysis and automation.</p>
+          <h3>
+            <a href="mock-project-1.html">Bootcamps with General Assembly</a>
+          </h3>
+          <p>
+            General Assembly's bootcamps provide hands-on training in tech
+            skills, preparing students for careers in coding, data, design, and
+            digital marketing.
+          </p>
         </div>
 
         <div class="project">
-            <h3><a href="project-5.html">Bootcamp - Data Science with General Assembly</a></h3>
-            <p>General Assembly's Data Science Bootcamp provides in-depth training in data analysis, machine learning, and predictive modeling, preparing students for careers in data science.</p>
+          <h3>
+            <a href="mock-project-2.html">Stories about General Assembly</a>
+          </h3>
+          <p>
+            General Assembly Stories showcases real-life experiences of students
+            and alumni, highlighting their journeys, career changes, and
+            successes after completing GA’s bootcamps.
+          </p>
+        </div>
+
+        <div class="project">
+          <h3>
+            <a href="mock-project-3.html"
+              >Short-course - Javascript Development with General Assembly</a
+            >
+          </h3>
+          <p>
+            General Assembly's JavaScript Development short course teaches
+            essential programming skills, focusing on building dynamic,
+            interactive web applications.
+          </p>
+        </div>
+
+        <div class="project">
+          <h3>
+            <a href="project-4.html"
+              >Short-course - Python with General Assembly</a
+            >
+          </h3>
+          <p>
+            General Assembly's Python short course teaches essential programming
+            skills, covering core concepts and practical applications in data
+            analysis and automation.
+          </p>
+        </div>
+
+        <div class="project">
+          <h3>
+            <a href="project-5.html"
+              >Bootcamp - Data Science with General Assembly</a
+            >
+          </h3>
+          <p>
+            General Assembly's Data Science Bootcamp provides in-depth training
+            in data analysis, machine learning, and predictive modeling,
+            preparing students for careers in data science.
+          </p>
         </div>
         <div class="project">
-            <h3><a href="project-6.html">Bootcamp - UX Design with General Assembly</a></h3>
-            <p>General Assembly's UX Design Bootcamp equips students with practical skills in user research, design, and prototyping to create effective, user-friendly experiences for various industries.</p>
+          <h3>
+            <a href="project-6.html"
+              >Bootcamp - UX Design with General Assembly</a
+            >
+          </h3>
+          <p>
+            General Assembly's UX Design Bootcamp equips students with practical
+            skills in user research, design, and prototyping to create
+            effective, user-friendly experiences for various industries.
+          </p>
         </div>
         <div class="project">
-            <h3><a href="project-7.html">Bootcamp - Software Engineering with General Assembly</a></h3>
-            <p>General Assembly's Software Engineering Bootcamp trains students to build, deploy, and maintain full-stack applications for diverse industries.</p>
+          <h3>
+            <a href="project-7.html"
+              >Bootcamp - Software Engineering with General Assembly</a
+            >
+          </h3>
+          <p>
+            General Assembly's Software Engineering Bootcamp trains students to
+            build, deploy, and maintain full-stack applications for diverse
+            industries.
+          </p>
         </div>
         <div class="project">
-            <h3><a href="project-8.html">Short-course: Product Management with General Assembly (UK)</a></h3>
-            <p>General Assembly UK's Product Management short course teaches essential skills for leading product development and delivering customer-focused solutions.</p>
+          <h3>
+            <a href="project-8.html"
+              >Short-course: Product Management with General Assembly (UK)</a
+            >
+          </h3>
+          <p>
+            General Assembly UK's Product Management short course teaches
+            essential skills for leading product development and delivering
+            customer-focused solutions.
+          </p>
         </div>
         <div class="project">
-            <h3><a href="project-9.html">Short-course: Digital Marketing with General Assembly (UK)</a></h3>
-            <p>General Assembly UK's Digital Marketing course teaches essential strategies in SEO, social media, content creation, and paid advertising to drive successful digital campaigns.</p>
+          <h3>
+            <a href="project-9.html"
+              >Short-course: Digital Marketing with General Assembly (UK)</a
+            >
+          </h3>
+          <p>
+            General Assembly UK's Digital Marketing course teaches essential
+            strategies in SEO, social media, content creation, and paid
+            advertising to drive successful digital campaigns.
+          </p>
         </div>
         <div class="project">
-            <h3><a href="project-10.html">Short-course: Data Science with General Assembly (UK)</a></h3>
-            <p>General Assembly's Data Science short course teaches data analysis, machine learning, and statistical modeling using tools like Python and SQL to solve real-world data challenges.</p>
+          <h3>
+            <a href="project-10.html"
+              >Short-course: Data Science with General Assembly (UK)</a
+            >
+          </h3>
+          <p>
+            General Assembly's Data Science short course teaches data analysis,
+            machine learning, and statistical modeling using tools like Python
+            and SQL to solve real-world data challenges.
+          </p>
         </div>
+      </div>
     </div>
-</div>
 
-<footer>
-    <p>&copy; 2024 Kickstart Your Dream Career. All rights reserved.</p>
-</footer>
-
-</body>
+    <footer>
+      <p>&copy; 2025 Kickstart Your Dream Career. All rights reserved.</p>
+    </footer>
+  </body>
 </html>

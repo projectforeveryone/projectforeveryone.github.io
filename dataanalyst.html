@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Analyst</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #ff4e50, #f9d423);
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 2rem;
+        background-color: #ffffffcc;
+        border-radius: 12px;
+        margin-top: 3rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2 {
+        color: #cc0000;
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      p {
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📊 Data Analyst Scenario</h1>
+      <p>
+        You’re a Junior Data Analyst at Project For Everyone (PFE). Your team is
+        analyzing how jobseekers engage with PFE’s learning platform and which
+        services (e.g. CV building, interview prep, career tracks) are most used
+        across different regions and seasons. The aim is to use data to better
+        serve learners.
+      </p>
+    </div>
+
+    <div class="container">
+      <h2>Task 1 - Data Cleaning</h2>
+      <p>
+        You’ve received a CSV file titled pfe_user_engagement_raw.csv,
+        containing data from over 5,000 users. The dataset includes columns
+        like:
+      </p>
+      <ul>
+        <li>user_id</li>
+        <li>signup_date</li>
+        <li>last_activity_date</li>
+        <li>location_region</li>
+        <li>track_enrolled</li>
+        <li>engagement_score</li>
+      </ul>
+      <h3>Issues</h3>
+      <ul>
+        <li>Missing last_activity_date</li>
+        <li>
+          Inconsistent region names (e.g., “North-West”, “North West”, “N/W”)
+        </li>
+        <li>Some users are duplicated due to platform sync issues</li>
+        <li>Engagement scores include text ("N/A") or out-of-range values</li>
+      </ul>
+      <h3>Tasks</h3>
+      <p>Describe how you would clean this dataset before analysis. Mention:</p>
+      <ul>
+        <li>Which values you’d remove, flag, or impute</li>
+        <li>How you’d standardize categorical fields</li>
+        <li>
+          Tools/functions you’d use (e.g., pandas.fillna(), Excel filters, data
+          validation rules)
+        </li>
+        <li>Any assumptions made about default values or data meaning</li>
+      </ul>
+    </div>
+    <div class="container">
+      <h2>
+        Task 2 - Insight Generation – Seasonal Trends in Learning Activity
+      </h2>
+      <p>
+        Your manager asks you to identify seasonal trends in how users access
+        PFE’s learning materials. You are given pfe_learning_activity_2023.csv,
+        which includes:
+      </p>
+      <ul>
+        <li>user_id</li>
+        <li>region</li>
+        <li>activity_month (e.g., “2023-01”, “2023-02”, etc.)</li>
+        <li>modules_completed</li>
+        <li>track_enrolled</li>
+        <li>learning_hours_logged</li>
+      </ul>
+      <h3>Tasks</h3>
+      <p>Outline how you would:</p>
+      <ul>
+        <li>Group and summarize this data to identify usage peaks by month</li>
+        <li>
+          Compare activity across different career tracks (e.g., STEM vs
+          Business)
+        </li>
+        <li>Identify periods of low engagement (e.g., summer, exam season)</li>
+        <li>
+          Suggest reasons for seasonal changes (e.g., holidays, school terms,
+          economic factors)
+        </li>
+        <li>
+          Recommend how PFE could respond (e.g., targeted reminders, new modules
+          before exams)
+        </li>
+      </ul>
+      <p>
+        Tools you can reference: Excel PivotTables, Python (groupby,
+        matplotlib), Tableau dashboards.
+      </p>
+    </div>
+    <div class="container">
+      <h2>Task 3 - User Segmentation</h2>
+      <p>
+        You’re asked to design a visualization showing how learning activity
+        varies by region over the past year. Your audience is a team of outreach
+        managers deciding where to invest in local workshops. You are given a
+        processed file: pfe_regional_learning_summary.csv, with:
+      </p>
+      <ul>
+        <li>region (North, South, East, West)</li>
+        <li>month</li>
+        <li>avg_learning_hours</li>
+        <li>active_users</li>
+        <li>track_focus (most common track per region that month)</li>
+      </ul>
+      <h3>Your Tasks</h3>
+      <p>Describe or sketch a dashboard/chart that:</p>
+      <ul>
+        <li>
+          Shows trends over time (e.g., a line chart with one line per region)
+        </li>
+        <li>Highlights changes in user engagement by month</li>
+        <li>Optionally includes a drop-down filter for “track_focus”</li>
+        <li>
+          Explains why your chosen format (e.g., stacked area chart, multi-line
+          graph) is best for regional comparisons
+        </li>
+      </ul>
+      <p>Include basic design notes such as:</p>
+      <ul>
+        <li>Color scheme for clarity</li>
+        <li>Clear axis labels and titles</li>
+        <li>Optional interactive filters (for use in Power BI or Tableau)</li>
+      </ul>
+      <p>Tools you can reference: Tableau, Power BI, Excel charts.</p>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Kickstart Your Dream Career. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
