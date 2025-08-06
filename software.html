@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Developer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #ff4e50, #f9d423);
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 2rem;
+        background-color: #ffffffcc;
+        border-radius: 12px;
+        margin-top: 3rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2 {
+        color: #cc0000;
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      p {
+        line-height: 1.6;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <h1>💻 Software Developer Intern Scenario</h1>
+      <p>
+        You’re a Software Developer Intern at PFE Simulations Ltd., working closely with the development team to build and improve simulation software. Your main responsibilities include writing clean, efficient, and well-documented code to implement new features and enhance existing functionality. You actively participate in debugging issues to ensure software reliability and contribute to team sprints by collaborating on tasks and sharing progress. Your role supports the smooth development and continuous improvement of PFE’s simulation technologies through strong coding practices and teamwork.</p>
+    </div>
+
+    <div class="container">
+      <h2>Task 1 - Debugging</h2>
+      <p>
+       You are given a Python script that processes a list of user inputs representing numbers and calculates the average. However, the script currently throws multiple errors and behaves unexpectedly.
+      </p>
+
+        <h3>Code</h3>
+        <pre><code>def calculate_average(numbers):
+    total = 0
+    for i in numbers:
+        total += i
+    avg = total / len(numbers)
+    return avg
+
+user_inputs = ["10", "20", "thirty", "40", "50"]
+
+average = calculate_average(user_inputs)
+print("Average is: " + average)
+    </pre></code>
+
+    <h3>Instructions</h3>
+        <ul>
+            <li>Identify all errors in the script that prevent it from running correctly or producing the expected result.</li>
+            <li>Explain why these errors occur.</li>
+            <li>Provide a corrected version of the script that: Converts valid numeric strings to integers, Ignores or handles invalid inputs gracefully (like "thirty"), and Calculates and prints the average of the valid numbers</li>
+            <li>BONUS: Modify the script to alert the user if no valid numbers were provided.</li>
+        </ul>
+    </div>
+    <div class="container">
+      <h2>Task 2 - Login Feature</h2>
+      <p>
+        Following your performance in the previous task, you have been assigned to design a login feature, and you are required to describe the following:
+      </p>
+      <ul>
+        <li>Required components (frontend and backend)</li>
+        <li>Authentication flow</li>
+        <li>Basic input validation</li>
+      </ul>
+      <p>BONUS: Mention one security consideration and how you'd handle it.</p>
+      </div>
+    <div class="container">
+        <h2>Task 3 - Code Review</h2>
+        <p>
+            You have been asked to review the function below and suggest improvements for readability and performance.
+        </p>
+        
+        <p>Code Snippet:</p>
+        <pre><code>d```python
+def calc(x,y):
+ return x+y
+```
+        </code></pre>
+        <p>Consider naming conventions, documentation, and error handling.</p>
+    </div>
+    </body>
+
+    <footer>
+        <p>&copy; 2025 Kickstart Your Dream Career. All rights reserved.</p>
+    </footer>
+</html>
