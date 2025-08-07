@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV Reviewer with Detailed AI-like Feedback</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f44336, #ff9800);
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: rgba(255,255,255,0.95);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .upload-box {
+      border: 2px dashed #ccc;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      transition: 0.3s ease;
+    }
+    .upload-box.dragover {
+      border-color: #f44336;
+      background: #ffe5e0;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 1rem;
+    }
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-primary { background: #f44336; color: white; }
+    .btn-primary:hover { background: #d32f2f; }
+    .btn-secondary { background: #eee; }
+    .feedback {
+      background: #fafafa;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 1rem;
+    }
+    .feedback h3 { margin-top: 0; }
+    ul { padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CV Reviewer</h1>
+    <p>Upload your CV (PDF, DOCX, TXT) or paste it below for quick, personalised feedback.</p>
+
+    <div class="upload-box" id="drop-area">
+      <p>Drag & drop a file here, or click to select</p>
+      <input type="file" id="file-input" hidden>
+      <button class="btn-secondary" onclick="document.getElementById('file-input').click()">Choose File</button>
+    </div>
+
+    <textarea id="cv-text" placeholder="Paste CV text here..."></textarea>
+    <div>
+      <button class="btn-primary" onclick="runAnalysis()">Analyze</button>
+      <button class="btn-secondary" onclick="clearAll()">Clear</button>
+    </div>
+
+    <div id="feedback" class="feedback" style="display:none;">
+      <h3>Automated Feedback</h3>
+      <p id="score"></p>
+      <div id="strengths"></div>
+      <div id="suggestions"></div>
+    </div>
+  </div>
+
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <!-- Mammoth.js for DOCX -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+
+  <script>
+    const dropArea = document.getElementById('drop-area');
+    const fileInput = document.getElementById('file-input');
+    const cvText = document.getElementById('cv-text');
+    const feedback = document.getElementById('feedback');
+    const scoreEl = document.getElementById('score');
+    const strengthsEl = document.getElementById('strengths');
+    const suggestionsEl = document.getElementById('suggestions');
+
+    // Drag & drop handlers
+    dropArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropArea.classList.add('dragover');
+    });
+    dropArea.addEventListener('dragleave', () => dropArea.classList.remove('dragover'));
+    dropArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropArea.classList.remove('dragover');
+      if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+    });
+
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length) handleFile(fileInput.files[0]);
+    });
+
+    async function handleFile(file) {
+      const ext = file.name.split('.').pop().toLowerCase();
+      if (file.type === 'text/plain' || ext === 'txt') {
+        cvText.value = await file.text();
+      } else if (file.type === 'application/pdf' || ext === 'pdf') {
+        extractPDF(file);
+      } else if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || ext === 'docx') {
+        extractDOCX(file);
+      } else {
+        alert('Unsupported file type. Please upload PDF, DOCX, or TXT.');
+      }
+    }
+
+    async function extractPDF(file) {
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      let text = '';
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const content = await page.getTextContent();
+        text += content.items.map(item => item.str).join(' ') + '\n';
+      }
+      cvText.value = text.trim();
+    }
+
+    async function extractDOCX(file) {
+      const arrayBuffer = await file.arrayBuffer();
+      const result = await mammoth.extractRawText({ arrayBuffer });
+      cvText.value = result.value.trim();
+    }
+
+    function runAnalysis() {
+      const text = cvText.value.trim();
+      if (!text) {
+        alert("Please paste or upload your CV text.");
+        return;
+      }
+      const results = analyzeText(text);
+      displayFeedback(results);
+    }
+
+    function clearAll() {
+      cvText.value = '';
+      feedback.style.display = 'none';
+    }
+
+    function analyzeText(t) {
+      const lower = t.toLowerCase();
+      const strengths = [];
+      const suggestions = [];
+      let score = 50; // start neutral
+
+      // Contact info check
+      if (/[0-9]{6,}|@/.test(t)) strengths.push("✅ Contact details are present, making it easy for recruiters to reach you.");
+      else suggestions.push("Add clear contact information at the top — email and phone number are key.");
+
+      // Summary section
+      if (/summary|objective|profile/.test(lower)) strengths.push("✅ A summary section gives a quick snapshot of your professional profile.");
+      else suggestions.push("Consider adding a short professional summary (3–4 sentences) to capture interest early.");
+
+      // Skills
+      if (/skills?:|technical skills|competencies/.test(lower)) strengths.push("✅ Skills section is included — this helps with keyword scanning.");
+      else suggestions.push("Include a dedicated skills section to highlight technical and soft skills.");
+
+      // Experience
+      if (/experience|worked at|company|responsible for/.test(lower)) strengths.push("✅ Experience section present — shows work history.");
+      else suggestions.push("List relevant work experience, starting with your most recent role.");
+
+      // Education
+      if (/education|university|degree|college/.test(lower)) strengths.push("✅ Education background is listed.");
+      else suggestions.push("Include your education history, with dates and qualifications.");
+
+      // Achievements & Metrics
+      if (/\d+%|\d{4}|\d+ years|\bmanaged\b|\bimproved\b|\bdelivered\b/.test(lower)) {
+        strengths.push("✅ You’ve used numbers or action verbs to show impact — very recruiter-friendly.");
+        score += 10;
+      } else {
+        suggestions.push("Add measurable results (e.g., 'Increased sales by 20%') to strengthen impact.");
+      }
+
+      // Word count
+      const words = t.split(/\s+/).filter(Boolean).length;
+      if (words >= 250 && words <= 800) strengths.push("✅ CV length is appropriate — concise yet informative.");
+      else if (words < 250) suggestions.push("Your CV feels short — aim for more detail on experience and achievements.");
+      else suggestions.push("Your CV might be too long — focus on key achievements and keep to 1–2 pages.");
+
+      // Score adjustments
+      score += strengths.length * 5;
+      if (score > 100) score = 100;
+
+      return { score, words, strengths, suggestions };
+    }
+
+    function displayFeedback(results) {
+      feedback.style.display = 'block';
+      scoreEl.textContent = `Score: ${results.score}/100 — ${results.words} words`;
+      strengthsEl.innerHTML = `<h4>Strengths</h4><ul>${results.strengths.map(s => `<li>${s}</li>`).join('')}</ul>`;
+      suggestionsEl.innerHTML = `<h4>Suggestions for Improvement</h4><ul>${results.suggestions.map(s => `<li>${s}</li>`).join('')}</ul>`;
+    }
+  </script>
+</body>
+</html>
