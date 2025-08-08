@@ -12,6 +12,30 @@
         padding: 0;
         color: #333;
       }
+       /* Back button style */
+      .back-button {
+        position: fixed;
+        top: 50px;
+        left: 200px;
+        z-index: 1000;
+        background-color: rgb(240, 158, 6);   /* button background */
+        border: 2px solid #333;    /* border color */
+        border-radius: 50px;        /* rounded corners */
+        padding: 8px 20px;              /* space around image */
+        display: inline flex;
+        align-items: center;         /* center image vertically */
+        justify-content: center;      /* center image horizontally */
+        transition: background-color 0.3s, transform 0.2s;
+        text-decoration: none;     /* remove link underline */
+      }
+      .back-button:hover {
+        background-color: #ecab4a;    /* hover background */
+        transform: scale(1.05);    /* slight zoom on hover */
+      }
+      .back-button img {
+        height: 70px; /* Increased size */
+        cursor: pointer;
+      }
       .container {
         max-width: 900px;
         margin: auto;
@@ -40,10 +64,14 @@
     </style>
 </head>
 <body>
+  <!-- Back arrow image link -->
+    <a href="sim.html" class="back-button">
+        <img src="ChatGPT Image Aug 8, 2025, 10_15_14 PM.png" alt="Back Button">
+    </a>
     <div class="container">
       <h1>🔬 Lab Research Assistant Scenario</h1>
       <p>
-        You’re a Lab Research Assistant at PFE simulations, working alongside the lead researcher to support a range of experimental simulations. Your primary role is to ensure experiments are set up correctly, equipment is calibrated, and safety protocols are followed throughout. During experiments, you log data in real-time, track key variables, and conduct basic analysis to spot trends or irregularities. After each session, you help dismantle setups, clean and store equipment, and document findings for internal reporting. The goal is to ensure smooth, accurate, and safe execution of lab-based research to support the development of new simulation technologies.
+        You’re a Lab Research Assistant at PFE simulations, working alongside the lead researcher to support a range of experimental simulations. Your primary role is to ensure experiments are set up correctly, equipment is calibrated, and safety protocols are followed throughout. During experiments, you log data in real-time, track key variables, and conduct basic analysis to spot trends or irregularities. After each session, you help dismantle setups, clean and store equipment, and document findings for internal reporting. The goal is to ensure smooth, accurate, and safe execution of lab-based research to support the development of new simulation technologies. <b>(Note) You can submit your work via document ie. docs, pdf and etc..., however please remember to send your work to the email provided in the submission section down below.</b> 
       </p>
     </div>
 
@@ -80,9 +108,9 @@ Organize this into a table and summarize the trend in 2-3 sentences.
     <div class="container">
       <h2>Submission</h2>
       <p>
-        When you have completed your tasks, please send them to this email for review and feedback labresearchscenario@gmail.com. Good luck!
+        When you have completed your tasks, please send them to this email for review and feedback <b>labresearchscenario@gmail.com</b>. Good luck!
       </p>
-      <p>If you have any questions, please email pfejobsimulations@gmail.com.</p>
+      <p>If you have any questions, please email <b>pfejobsimulations@gmail.com</b>.</p>
       </div>
   </body>
 

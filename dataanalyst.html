@@ -12,6 +12,30 @@
         padding: 0;
         color: #333;
       }
+      /* Back button style */
+      .back-button {
+        position: fixed;
+        top: 50px;
+        left: 200px;
+        z-index: 1000;
+        background-color: rgb(240, 158, 6);   /* button background */
+        border: 2px solid #333;    /* border color */
+        border-radius: 50px;        /* rounded corners */
+        padding: 8px 20px;              /* space around image */
+        display: inline flex;
+        align-items: center;         /* center image vertically */
+        justify-content: center;      /* center image horizontally */
+        transition: background-color 0.3s, transform 0.2s;
+        text-decoration: none;     /* remove link underline */
+      }
+      .back-button:hover {
+        background-color: #ecab4a;    /* hover background */
+        transform: scale(1.05);    /* slight zoom on hover */
+      }
+      .back-button img {
+        height: 70px; /* Increased size */
+        cursor: pointer;
+      }
       .container {
         max-width: 900px;
         margin: auto;
@@ -73,6 +97,10 @@
     </style>
   </head>
   <body>
+    <!-- Back arrow image link -->
+    <a href="sim.html" class="back-button">
+        <img src="ChatGPT Image Aug 8, 2025, 10_15_14 PM.png" alt="Back Button">
+    </a>
     <div class="container">
       <h1>📊 Data Analyst Scenario</h1>
       <p>
@@ -80,7 +108,7 @@
         analyzing how jobseekers engage with PFE’s learning platform and which
         services (e.g. CV building, interview prep, career tracks) are most used
         across different regions and seasons. The aim is to use data to better
-        serve learners.
+        serve learners. <b>(Note) You can submit your work via document ie. docs, pdf and etc..., please remember to send your work to the email provided in the submission section down below.</b> 
       </p>
     </div>
 
@@ -209,9 +237,9 @@
       <h2>Submission</h2>
       <p>
         When you have completed your tasks, please send them to this email for
-        review and feedback dataanalystscenario@gmail.com. Good luck!
+        review and feedback <strong>dataanalystscenario@gmail.com</strong>. Good luck!
       </p>
-      <p>If you have any questions, please email pfejobsimulations@gmail.com.</p>
+      <p>If you have any questions, please email <b>pfejobsimulations@gmail.com</b>.</p>
       </div>
 
     <footer>

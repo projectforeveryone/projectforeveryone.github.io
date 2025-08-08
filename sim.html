@@ -1,154 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Job Scenarios and Simulations</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(to right, #ff4e50, #f9d423);
-        margin: 0;
-        padding: 0;
-        color: #333;
-      }
-      .container {
-        max-width: 900px;
-        margin: auto;
-        padding: 2rem;
-        background-color: #ffffffcc;
-        border-radius: 12px;
-        margin-top: 3rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-      h1,
-      h2 {
-        color: #cc0000;
-      }
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-      }
-      h2 {
-        font-size: 1.8rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-      }
-      p {
-        line-height: 1.6;
-      }
-      nav {
-        margin: 1.5rem 0;
-      }
-      button {
-        background-color: #ff4757;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 30px;
-        border: none;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Scenarios and Simulations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff4e50, #f9d423);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .home-btn {
+      position: fixed;
+        top: 50px;
+        left: 200px;
+        z-index: 1000;
+   background-color: rgb(240, 158, 6);   /* button background */
+        border: 2px solid #333;
+  border-radius: 50px;           /* Rounded corners */
+  padding: 8px 20px;              /* space around image */
+        display: inline flex;
+        align-items: center;         /* center image vertically */
+        justify-content: center;      /* center image horizontally */
+        transition: background-color 0.3s, transform 0.2s;
+        text-decoration: none;     /* remove link underline */
+}
 
-      button:hover {
-        background-color: #ffa502;
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-        transform: scale(1.1);
-      }
-      .button-link {
-        display: inline-block;
-        padding: 0.6rem 1.2rem;
-        margin: 0.5rem 0.5rem 0.5rem 0;
-        background-color: #cc0000;
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        transition: background-color 0.3s ease;
-        font-weight: bold;
-      }
-      .button-link:hover {
-        background-color: #a30000;
-      }
-      input.search-bar {
-        margin-bottom: 1.5rem;
-        padding: 0.75rem;
-        width: 100%;
-        box-sizing: border-box;
-        font-size: 1rem;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-    </style>
-    <script>
-      function searchSimulations() {
-        const input = document
-          .getElementById("searchInput")
-          .value.toLowerCase();
-        const simulations = document.querySelectorAll(".simulation");
-        simulations.forEach((sim) => {
-          const title = sim.querySelector("h2").textContent.toLowerCase();
-          if (title.includes(input)) {
-            sim.style.display = "block";
-          } else {
-            sim.style.display = "none";
-          }
-        });
-      }
-    </script>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Job Scenarios and Simulations</h1>
-      <button class="home-button" onclick="window.location.href='index.html'">
-        Home
-      </button>
+.home-btn:hover {
+ background-color: #ecab4a;   /* Hover background */
+  transform: scale(1.05);
+}
+    .home-icon {
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #ffffffcc;
+      border-radius: 12px;
+      margin-top: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      color: #cc0000;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      line-height: 1.6;
+    }
+    .search-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    input.search-bar {
+      flex: 1;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+    }
+    .search-icon {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-left: none;
+      border-radius: 0 5px 5px 0;
+      padding: 5px;
+    }
+    .button-link {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      margin: 0.5rem 0.5rem 0.5rem 0;
+      background-color: #cc0000;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+    }
+    .button-link:hover {
+      background-color: #a30000;
+    }
+  </style>
+  <script>
+    function searchSimulations() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const simulations = document.querySelectorAll(".simulation");
+      simulations.forEach(sim => {
+        const title = sim.querySelector("h2").textContent.toLowerCase();
+        sim.style.display = title.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <button class="home-btn" onclick="window.location.href='index.html'">
+      <img src="home.png" alt="Home" class="home-icon">
+    </button>
+  </header>
+
+  <div class="container">
+    <h1>Job Scenarios and Simulations</h1>
+
+    <div class="search-container">
       <input
         type="text"
         id="searchInput"
         placeholder="Search for a simulation..."
+        class="search-bar"
         onkeyup="searchSimulations()"
       />
-      <div class="simulation">
-        <h2>Civil Engineering Scenario</h2>
-        <p>
-          The Civil Engineering job simulation offers hands-on tasks like
-          structural load calculations, proposal writing, and site risk
-          assessments to mimic real-world engineering responsibilities.
-        </p>
-        <a href="civilengineering.html" class="button-link">Click here</a>
-      </div>
-      <div class="simulation">
-        <h2>Data Analyst Scenario</h2>
-        <p>
-          The Data Analyst job simulation immerses participants in querying
-          databases, cleaning messy datasets, and visualizing insights to drive
-          data-informed business decisions.
-        </p>
-        <a href="dataanalyst.html" class="button-link">Click here</a>
-      </div>
-      <div class="simulation">
-        <h2>Lab research Scenario</h2>
-        <p>
-          The Lab Research Assistant job simulation guides participants through
-          designing experiments, ensuring lab safety, and recording scientific
-          data to support real-world research processes.
-        </p>
-        <a href="lab.html" class="button-link">Click here</a>
-      </div>
-      <div class="simulation">
-        <h2>Software Developer Scenario</h2>
-        <p>
-          The Software Developer job simulation challenges participants to
-          write code, debug applications, and collaborate on software projects,
-          providing a realistic glimpse into the life of a developer.
-        </p>
-        <a href="software.html" class="button-link">Click here</a>
-      </div>
+      <img src="search.png" alt="Search" class="search-icon" onclick="searchSimulations()">
     </div>
 
-    <footer>
-      <p>&copy; 2025 Kickstart Your Dream Career. All rights reserved.</p>
-    </footer>
-  </body>
+    <div class="simulation">
+      <h2>Civil Engineering Scenario</h2>
+      <p>The Civil Engineering job simulation offers hands-on tasks like structural load calculations, proposal writing, and site risk assessments to mimic real-world engineering responsibilities.</p>
+      <a href="civilengineering.html" class="button-link">Click here</a>
+    </div>
+
+    <div class="simulation">
+      <h2>Data Analyst Scenario</h2>
+      <p>The Data Analyst job simulation immerses participants in querying databases, cleaning messy datasets, and visualizing insights to drive data-informed business decisions.</p>
+      <a href="dataanalyst.html" class="button-link">Click here</a>
+    </div>
+
+    <div class="simulation">
+      <h2>Lab research Scenario</h2>
+      <p>The Lab Research Assistant job simulation guides participants through designing experiments, ensuring lab safety, and recording scientific data to support real-world research processes.</p>
+      <a href="lab.html" class="button-link">Click here</a>
+    </div>
+
+    <div class="simulation">
+      <h2>Software Developer Scenario</h2>
+      <p>The Software Developer job simulation challenges participants to write code, debug applications, and collaborate on software projects, providing a realistic glimpse into the life of a developer.</p>
+      <a href="software.html" class="button-link">Click here</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Kickstart Your Dream Career. All rights reserved.</p>
+  </footer>
+
+</body>
 </html>
