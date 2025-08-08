@@ -1,89 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Software Developer</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(to right, #ff4e50, #f9d423);
-        margin: 0;
-        padding: 0;
-        color: #333;
-      }
-       /* Back button style */
-      .back-button {
-        position: fixed;
-        top: 50px;
-        left: 200px;
-        z-index: 1000;
-        background-color: rgb(240, 158, 6);   /* button background */
-        border: 2px solid #333;    /* border color */
-        border-radius: 50px;        /* rounded corners */
-        padding: 8px 20px;              /* space around image */
-        display: inline flex;
-        align-items: center;         /* center image vertically */
-        justify-content: center;      /* center image horizontally */
-        transition: background-color 0.3s, transform 0.2s;
-        text-decoration: none;     /* remove link underline */
-      }
-      .back-button:hover {
-        background-color: #ecab4a;    /* hover background */
-        transform: scale(1.05);    /* slight zoom on hover */
-      }
-      .back-button img {
-        height: 70px; /* Increased size */
-        cursor: pointer;
-      }
-      .container {
-        max-width: 900px;
-        margin: auto;
-        padding: 2rem;
-        background-color: #ffffffcc;
-        border-radius: 12px;
-        margin-top: 3rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-      h1,
-      h2 {
-        color: #cc0000;
-      }
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-      }
-      h2 {
-        font-size: 1.8rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-      }
-      p {
-        line-height: 1.6;
-      }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Software Developer</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff4e50, #f9d423);
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+
+  /* Back button style */
+  .back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background-color: rgb(240, 158, 6);
+    border: 2px solid #333;
+    border-radius: 50px;
+    padding: 8px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+  }
+  .back-button:hover {
+    background-color: #ecab4a;
+    transform: scale(1.05);
+  }
+  .back-button img {
+    height: 50px;
+    cursor: pointer;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 1.5rem;
+    background-color: #ffffffcc;
+    border-radius: 12px;
+    margin-top: 3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  h1, h2 {
+    color: #cc0000;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    line-height: 1.6;
+  }
+
+  pre {
+    background: #f4f4f4;
+    padding: 10px;
+    overflow-x: auto;
+    border-radius: 8px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    background-color: #ffffffaa;
+    margin-top: 2rem;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .back-button {
+      top: 10px;
+      left: 10px;
+      padding: 6px 14px;
+    }
+    .back-button img {
+      height: 40px;
+    }
+    .container {
+      margin: 1rem;
+      padding: 1rem;
+    }
+    h1 {
+      font-size: 1.6rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+    }
+    p, ul, li {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .back-button {
+      top: 8px;
+      left: 8px;
+      padding: 5px 12px;
+    }
+    .back-button img {
+      height: 35px;
+    }
+    .container {
+      margin: 0.5rem;
+      padding: 0.8rem;
+    }
+    h1 {
+      font-size: 1.4rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+    }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Back arrow image link -->
-    <a href="sim.html" class="back-button">
-        <img src="ChatGPT Image Aug 8, 2025, 10_15_14 PM.png" alt="Back Button">
-    </a>
+<!-- Back arrow image link -->
+<a href="sim.html" class="back-button">
+  <img src="ChatGPT Image Aug 8, 2025, 10_15_14 PM.png" alt="Back Button">
+</a>
 
-    <div class="container">
-      <h1>💻 Software Developer Intern Scenario</h1>
-      <p>
-        You’re a Software Developer Intern at PFE Simulations Ltd., working closely with the development team to build and improve simulation software. Your main responsibilities include writing clean, efficient, and well-documented code to implement new features and enhance existing functionality. You actively participate in debugging issues to ensure software reliability and contribute to team sprints by collaborating on tasks and sharing progress. Your role supports the smooth development and continuous improvement of PFE’s simulation technologies through strong coding practices and teamwork. <b>(Note) You can submit your work via document ie. docs, pdf and etc..., however please remember to send your work to the email provided in the submission section down below.</b></p>
-    </div>
+<div class="container">
+  <h1>💻 Software Developer Intern Scenario</h1>
+  <p>
+    You’re a Software Developer Intern at PFE Simulations Ltd., working closely with the development team to build and improve simulation software...
+    <b>(Note)</b> You can submit your work via document (docs, pdf, etc.), but please remember to send it to the email in the submission section below.
+  </p>
+</div>
 
-    <div class="container">
-      <h2>Task 1 - Debugging</h2>
-      <p>
-       You are given a Python script that processes a list of user inputs representing numbers and calculates the average. However, the script currently throws multiple errors and behaves unexpectedly.
-      </p>
+<div class="container">
+  <h2>Task 1 - Debugging</h2>
+  <p>You are given a Python script that processes a list of user inputs...</p>
 
-        <h3>Code</h3>
-        <pre><code>def calculate_average(numbers):
+  <h3>Code</h3>
+  <pre><code>def calculate_average(numbers):
     total = 0
     for i in numbers:
         total += i
@@ -94,53 +161,48 @@ user_inputs = ["10", "20", "thirty", "40", "50"]
 
 average = calculate_average(user_inputs)
 print("Average is: " + average)
-    </pre></code>
+</code></pre>
 
-    <h3>Instructions</h3>
-        <ul>
-            <li>Identify all errors in the script that prevent it from running correctly or producing the expected result.</li>
-            <li>Explain why these errors occur.</li>
-            <li>Provide a corrected version of the script that: Converts valid numeric strings to integers, Ignores or handles invalid inputs gracefully (like "thirty"), and Calculates and prints the average of the valid numbers</li>
-            <li>BONUS: Modify the script to alert the user if no valid numbers were provided.</li>
-        </ul>
-    </div>
-    <div class="container">
-      <h2>Task 2 - Login Feature</h2>
-      <p>
-        Following your performance in the previous task, you have been assigned to design a login feature, and you are required to describe the following:
-      </p>
-      <ul>
-        <li>Required components (frontend and backend)</li>
-        <li>Authentication flow</li>
-        <li>Basic input validation</li>
-      </ul>
-      <p>BONUS: Mention one security consideration and how you'd handle it.</p>
-      </div>
-    <div class="container">
-        <h2>Task 3 - Code Review</h2>
-        <p>
-            You have been asked to review the function below and suggest improvements for readability and performance.
-        </p>
-        
-        <p>Code Snippet:</p>
-        <pre><code>d```python
+  <h3>Instructions</h3>
+  <ul>
+    <li>Identify all errors...</li>
+    <li>Explain why these errors occur.</li>
+    <li>Provide a corrected version...</li>
+    <li>BONUS: Modify the script to alert the user if no valid numbers were provided.</li>
+  </ul>
+</div>
+
+<div class="container">
+  <h2>Task 2 - Login Feature</h2>
+  <p>Following your performance in the previous task, you have been assigned...</p>
+  <ul>
+    <li>Required components (frontend and backend)</li>
+    <li>Authentication flow</li>
+    <li>Basic input validation</li>
+  </ul>
+  <p>BONUS: Mention one security consideration...</p>
+</div>
+
+<div class="container">
+  <h2>Task 3 - Code Review</h2>
+  <p>You have been asked to review the function below...</p>
+  <pre><code>```python
 def calc(x,y):
  return x+y
- ```
-        </code></pre>
-        <p>Consider naming conventions, documentation, and error handling.</p>
-    </div>
-    <div class="container">
-      <h2>Submission</h2>
-    <p>
-        When you have completed your tasks, please send them to this email for
-        review and feedback <strong>softwaredeveloperscenario@gmail.com</strong>. Good luck!
-      </p>
-      <p>If you have any questions, please email <b>pfejobsimulations@gmail.com</b>.</p>
-      </div>
+```</code></pre>
+  <p>Consider naming conventions, documentation, and error handling.</p>
+</div>
 
-    <footer>
-      <p>&copy; 2025 Kickstart Your Dream Career. All rights reserved.</p>
-    </footer>
-    </body>
-    </html>
+<div class="container">
+  <h2>Submission</h2>
+  <p>When you have completed your tasks, please send them to
+    <strong>softwaredeveloperscenario@gmail.com</strong>.
+  </p>
+  <p>If you have questions, email <b>pfejobsimulations@gmail.com</b>.</p>
+</div>
+
+<footer>
+  <p>&copy; 2025 Kickstart Your Dream Career. All rights reserved.</p>
+</footer>
+</body>
+</html>
