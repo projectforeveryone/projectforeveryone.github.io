@@ -37,6 +37,39 @@
       p {
         line-height: 1.6;
       }
+      .download-btn {
+      display: inline-block;
+      padding: 10px 16px;
+      background-color: #ec0b0b;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      margin-top: 8px;
+    }
+    .download-btn:hover {
+      background-color: #ff6666;
+    }
+
+    /* Table Styling */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
     </style>
   </head>
   <body>
@@ -58,6 +91,9 @@
         containing data from over 5,000 users. The dataset includes columns
         like:
       </p>
+      <p>Preview of <b>pfe_user_engagement_raw.csv</b>:</p>
+    <div id="csv1"></div>
+    <a href="pfe_user_engagement_raw.csv" download class="download-btn">⬇ Download CSV</a>
       <ul>
         <li>user_id</li>
         <li>signup_date</li>
@@ -96,6 +132,9 @@
         PFE’s learning materials. You are given pfe_learning_activity_2023.csv,
         which includes:
       </p>
+      <p>Preview of <b>pfe_learning_activity_2023.csv</b>:</p>
+    <div id="csv2"></div>
+    <a href="pfe_learning_activity_2023.csv" download class="download-btn">⬇ Download CSV</a>
       <ul>
         <li>user_id</li>
         <li>region</li>
@@ -135,6 +174,9 @@
         managers deciding where to invest in local workshops. You are given a
         processed file: pfe_regional_learning_summary.csv, with:
       </p>
+      <p>Preview of <b>pfe_regional_learning_summary.csv</b>:</p>
+    <div id="csv3"></div>
+    <a href="pfe_regional_learning_summary.csv" download class="download-btn">⬇ Download CSV</a>
       <ul>
         <li>region (North, South, East, West)</li>
         <li>month</li>
@@ -163,9 +205,58 @@
       </ul>
       <p>Tools you can reference: Tableau, Power BI, Excel charts.</p>
     </div>
+    <div class="container">
+      <h2>Submission</h2>
+      <p>
+        When you have completed your tasks, please send them to this email for
+        review and feedback dataanalystscenario@gmail.com. Good luck!
+      </p>
+      <p>If you have any questions, please email pfejobsimulations@gmail.com.</p>
+      </div>
 
     <footer>
       <p>&copy; 2025 Kickstart Your Dream Career. All rights reserved.</p>
     </footer>
+     <!-- Papa Parse library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+  <script>
+    function csvToTable(data) {
+      let table = "<table><thead><tr>";
+      Object.keys(data[0]).forEach(header => {
+        table += `<th>${header}</th>`;
+      });
+      table += "</tr></thead><tbody>";
+      data.forEach(row => {
+        table += "<tr>";
+        Object.values(row).forEach(value => {
+          table += `<td>${value ?? ""}</td>`;
+        });
+        table += "</tr>";
+      });
+      table += "</tbody></table>";
+      return table;
+    }
+
+    function loadCSV(file, containerId) {
+      Papa.parse(file, {
+        download: true,
+        header: true,
+        complete: function(results) {
+          const container = document.getElementById(containerId);
+          if (results.data.length > 0) {
+            container.innerHTML = csvToTable(results.data.slice(0, 10)); // show first 10 rows
+          } else {
+            container.innerHTML = "<p>No data found.</p>";
+          }
+        }
+      });
+    }
+
+    window.onload = function() {
+      loadCSV("pfe_user_engagement_raw.csv", "csv1");
+      loadCSV("pfe_learning_activity_2023.csv", "csv2");
+      loadCSV("pfe_regional_learning_summary.csv", "csv3");
+    }
+  </script>
   </body>
 </html>
