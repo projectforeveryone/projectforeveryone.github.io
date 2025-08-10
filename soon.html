@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stay Tuned</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #ff3131, #ff914d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 15px 0 25px;
+      max-width: 500px;
+      opacity: 0.9;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px rgba(255,255,255,0.6), 0 0 20px rgba(255,165,0,0.4); }
+      to { text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 35px rgba(255,165,0,0.6); }
+    }
+
+    input[type="email"] {
+      padding: 12px 15px;
+      border: none;
+      border-radius: 30px;
+      outline: none;
+      width: 250px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background: white;
+      color: #ff3131;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .home-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.home-btn img {
+  width: 100px; /* Adjust size */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.home-btn img:hover {
+  transform: scale(1.1);
+}
+
+
+    button:hover {
+      background: #ff914d;
+      color: white;
+    }
+
+    .logo {
+        width: 120px;
+        margin-bottom: 20px;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.3rem; }
+      input[type="email"] { width: 200px; margin-bottom: 10px; }
+      form { display: flex; flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+<a href="index.html" class="home-btn">
+  <img src="home.png" alt="Home" />
+</a>
+
+  <img src="logo.png" alt="Project For Everyone Logo" class="logo">
+  
+  <h1>Something Big is Coming</h1>
+  <p>We’re working on something exciting. Stay tuned and be the first to know when it drops.</p>
+
+  <form>
+    <input type="email" placeholder="Enter your email" required />
+    <button type="submit">Join the Waitlist</button>
+  </form>
+
+  <footer>© 2025 Project For Everyone</footer>
+
+</body>
+</html>
