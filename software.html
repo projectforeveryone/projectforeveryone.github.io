@@ -34,9 +34,25 @@
     transform: scale(1.05);
   }
   .back-button img {
-    height: 50px;
-    cursor: pointer;
+        width: 48px; /* Default for small screens */
+        height: 48px;
+        cursor: pointer;
+      }
+      /* Tablets */
+@media (min-width: 600px) {
+  .back-button {
+    width: 36px;
+    height: 36px;
   }
+}
+
+/* Desktops */
+@media (min-width: 1024px) {
+  .back-button {
+    width: 48px;
+    height: 48px;
+  }
+}
 
   .container {
     max-width: 900px;
@@ -83,51 +99,8 @@
     margin-top: 2rem;
   }
 
-  /* Mobile adjustments */
-  @media (max-width: 768px) {
-    .back-button {
-      top: 10px;
-      left: 10px;
-      padding: 6px 14px;
-    }
-    .back-button img {
-      height: 40px;
-    }
-    .container {
-      margin: 1rem;
-      padding: 1rem;
-    }
-    h1 {
-      font-size: 1.6rem;
-    }
-    h2 {
-      font-size: 1.3rem;
-    }
-    p, ul, li {
-      font-size: 0.95rem;
-    }
-  }
 
-  @media (max-width: 480px) {
-    .back-button {
-      top: 8px;
-      left: 8px;
-      padding: 5px 12px;
-    }
-    .back-button img {
-      height: 35px;
-    }
-    .container {
-      margin: 0.5rem;
-      padding: 0.8rem;
-    }
-    h1 {
-      font-size: 1.4rem;
-    }
-    h2 {
-      font-size: 1.1rem;
-    }
-  }
+  
 </style>
 </head>
 <body>
