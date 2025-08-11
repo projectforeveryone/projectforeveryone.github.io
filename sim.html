@@ -12,7 +12,57 @@
       padding: 0;
       color: #333;
     }
-    .home-btn {
+    /* Make container flexible */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+  background-color: #ffffffcc;
+  border-radius: 12px;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust typography for small screens */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Search bar & icon stack on small screens */
+.search-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+input.search-bar {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.search-icon {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* Home button responsiveness */
+.home-btn {
   position: fixed;
   top: 15px;
   left: 15px;
@@ -20,7 +70,7 @@
   background-color: rgb(240, 158, 6);
   border: 2px solid #333;
   border-radius: 50%;
-  padding: 8px;
+  padding: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,87 +84,80 @@
 }
 
 .home-icon {
-  width: 28px; /* Default for small screens */
+  width: 28px;
   height: 28px;
   cursor: pointer;
 }
 
 /* Tablets */
 @media (min-width: 600px) {
-  .home-icon {
-    width: 36px;
-    height: 36px;
-  }
+  h1 { font-size: 2.3rem; }
+  h2 { font-size: 1.6rem; }
+  .home-icon { width: 36px; height: 36px; }
 }
 
 /* Desktops */
 @media (min-width: 1024px) {
-  .home-icon {
-    width: 48px;
-    height: 48px;
-  }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.8rem; }
+  .home-icon { width: 48px; height: 48px; }
 }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-      background-color: #ffffffcc;
-      border-radius: 12px;
-      margin-top: 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    header {
+      position: relative;
+      padding: 20px;
+      text-align: center;
     }
-    h1, h2 {
-      color: #cc0000;
-    }
+
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 20px;
     }
-    h2 {
-      font-size: 1.8rem;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+
+    .simulation {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    p {
+
+    .simulation h2 {
+      color: #ff3131;
+      margin-top: 0;
+    }
+
+    .simulation p {
+      font-size: 1rem;
       line-height: 1.6;
     }
-    .search-container {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-    input.search-bar {
-      flex: 1;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 5px 0 0 5px;
-      outline: none;
-    }
-    .search-icon {
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      background-color: white;
-      border: 1px solid #ddd;
-      border-left: none;
-      border-radius: 0 5px 5px 0;
-      padding: 5px;
-    }
+
     .button-link {
       display: inline-block;
-      padding: 0.6rem 1.2rem;
-      margin: 0.5rem 0.5rem 0.5rem 0;
-      background-color: #cc0000;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #ff3131;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-      font-weight: bold;
+      border-radius: 5px;
     }
+
     .button-link:hover {
-      background-color: #a30000;
+      background-color: #ff914d;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      padding: 10px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+      width: 250px;
     }
   </style>
   <script>

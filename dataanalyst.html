@@ -1,85 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Analyst</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(to right, #ff4e50, #f9d423);
-        margin: 0;
-        padding: 0;
-        color: #333;
-      }
-      /* Back button style */
-      .back-button {
-        position: fixed;
-        top: 50px;
-        left: 200px;
-        z-index: 1000;
-        background-color: rgb(240, 158, 6);   /* button background */
-        border: 2px solid #333;    /* border color */
-        border-radius: 50px;        /* rounded corners */
-        padding: 8px 20px;              /* space around image */
-        display: inline flex;
-        align-items: center;         /* center image vertically */
-        justify-content: center;      /* center image horizontally */
-        transition: background-color 0.3s, transform 0.2s;
-        text-decoration: none;     /* remove link underline */
-      }
-      .back-button:hover {
-        background-color: #ecab4a;    /* hover background */
-        transform: scale(1.05);    /* slight zoom on hover */
-      }
-      .back-button img {
-        width: 48px; /* Default for small screens */
-        height: 48px;
-        cursor: pointer;
-      }
-      /* Tablets */
-@media (min-width: 600px) {
-  .back-button {
-    width: 36px;
-    height: 36px;
-  }
-}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Analyst</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff4e50, #f9d423);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
 
-/* Desktops */
-@media (min-width: 1024px) {
-  .back-button {
-    width: 48px;
-    height: 48px;
-  }
-}
-      .container {
-        max-width: 900px;
-        margin: auto;
-        padding: 2rem;
-        background-color: #ffffffcc;
-        border-radius: 12px;
-        margin-top: 3rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-      h1,
-      h2 {
-        color: #cc0000;
-      }
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-      }
-      h2 {
-        font-size: 1.8rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-      }
-      p {
-        line-height: 1.6;
-      }
-      .download-btn {
+    /* Back button */
+    .back-button {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 1000;
+      background-color: rgb(240, 158, 6);
+      border: 2px solid #333;
+      border-radius: 50px;
+      padding: 6px 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s, transform 0.2s;
+      text-decoration: none;
+    }
+    .back-button:hover {
+      background-color: #ecab4a;
+      transform: scale(1.05);
+    }
+    .back-button img {
+      width: 49px;
+      height: 49px;
+      cursor: pointer;
+    }
+
+    /* Default = Desktop view */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #ffffffcc;
+      border-radius: 12px;
+      margin-top: 3rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      color: #cc0000;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    p, li {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    .download-btn {
       display: inline-block;
-      padding: 10px 16px;
+      padding: 8px 12px;
       background-color: #ec0b0b;
       color: white;
       border: none;
@@ -88,180 +77,129 @@
       font-weight: bold;
       transition: background-color 0.3s ease;
       margin-top: 8px;
+      font-size: 0.9rem;
     }
     .download-btn:hover {
       background-color: #ff6666;
     }
 
-    /* Table Styling */
-    table {
+    /* Table responsiveness */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .table-wrapper table {
       border-collapse: collapse;
       width: 100%;
-      margin-top: 15px;
     }
-    th, td {
+    @media (max-width: 768px) {
+      .table-wrapper table {
+        min-width: 480px; /* only force scroll on smaller screens */
+      }
+    }
+    .table-wrapper th,
+    .table-wrapper td {
       border: 1px solid #ccc;
-      padding: 8px;
+      padding: 6px;
       text-align: left;
+      font-size: 0.9rem;
+      white-space: normal;
     }
-    th {
+    .table-wrapper th {
       background-color: #f2f2f2;
     }
-    tr:nth-child(even) {
+    .table-wrapper tr:nth-child(even) {
       background-color: #fafafa;
     }
-    </style>
-  </head>
-  <body>
-    <!-- Back arrow image link -->
-    <a href="sim.html" class="back-button">
-        <img src="ChatGPT Image Aug 8, 2025, 10_15_14 PM.png" alt="Back Button">
-    </a>
-    <div class="container">
-      <h1>📊 Data Analyst Scenario</h1>
-      <p>
-        You’re a Junior Data Analyst at Project For Everyone (PFE). Your team is
-        analyzing how jobseekers engage with PFE’s learning platform and which
-        services (e.g. CV building, interview prep, career tracks) are most used
-        across different regions and seasons. The aim is to use data to better
-        serve learners. <b>(Note) You can submit your work via document ie. docs, pdf and etc..., please remember to send your work to the email provided in the submission section down below.</b> 
-      </p>
-    </div>
 
-    <div class="container">
-      <h2>Task 1 - Data Cleaning</h2>
-      <p>
-        You’ve received a CSV file titled pfe_user_engagement_raw.csv,
-        containing data from over 5,000 users. The dataset includes columns
-        like:
-      </p>
-      <p>Preview of <b>pfe_user_engagement_raw.csv</b>:</p>
+    /* Medium screens (tablets) */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      .container {
+        padding: 1.2rem;
+      }
+      .back-button img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    /* Small screens (phones) */
+    @media (max-width: 480px) {
+      .container {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+      p, li {
+        font-size: 0.9rem;
+      }
+      .back-button {
+        padding: 4px 10px;
+        top: 10px;
+        left: 10px;
+      }
+      .back-button img {
+        width: 28px;
+        height: 28px;
+      }
+      .table-wrapper table {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Back arrow image link -->
+  <a href="sim.html" class="back-button">
+    <img src="ChatGPT Image Aug 8, 2025, 10_15_14 PM.png" alt="Back Button">
+  </a>
+
+  <div class="container">
+    <h1>📊 Data Analyst Scenario</h1>
+    <p>
+      You’re a Junior Data Analyst at Project For Everyone (PFE). Your team is
+      analyzing how jobseekers engage with PFE’s learning platform and which
+      services are most used across different regions and seasons.
+      <b>(Note)</b> You can submit your work via document (docs, pdf, etc.).
+    </p>
+  </div>
+
+  <div class="container">
+    <h2>Task 1 - Data Cleaning</h2>
+    <p>Preview of <b>pfe_user_engagement_raw.csv</b>:</p>
     <div id="csv1"></div>
     <a href="pfe_user_engagement_raw.csv" download class="download-btn">⬇ Download CSV</a>
-      <ul>
-        <li>user_id</li>
-        <li>signup_date</li>
-        <li>last_activity_date</li>
-        <li>location_region</li>
-        <li>track_enrolled</li>
-        <li>engagement_score</li>
-      </ul>
-      <h3>Issues</h3>
-      <ul>
-        <li>Missing last_activity_date</li>
-        <li>
-          Inconsistent region names (e.g., “North-West”, “North West”, “N/W”)
-        </li>
-        <li>Some users are duplicated due to platform sync issues</li>
-        <li>Engagement scores include text ("N/A") or out-of-range values</li>
-      </ul>
-      <h3>Tasks</h3>
-      <p>Describe how you would clean this dataset before analysis. Mention:</p>
-      <ul>
-        <li>Which values you’d remove, flag, or impute</li>
-        <li>How you’d standardize categorical fields</li>
-        <li>
-          Tools/functions you’d use (e.g., pandas.fillna(), Excel filters, data
-          validation rules)
-        </li>
-        <li>Any assumptions made about default values or data meaning</li>
-      </ul>
-    </div>
-    <div class="container">
-      <h2>
-        Task 2 - Insight Generation – Seasonal Trends in Learning Activity
-      </h2>
-      <p>
-        Your manager asks you to identify seasonal trends in how users access
-        PFE’s learning materials. You are given pfe_learning_activity_2023.csv,
-        which includes:
-      </p>
-      <p>Preview of <b>pfe_learning_activity_2023.csv</b>:</p>
+  </div>
+
+  <div class="container">
+    <h2>Task 2 - Insight Generation</h2>
+    <p>Preview of <b>pfe_learning_activity_2023.csv</b>:</p>
     <div id="csv2"></div>
     <a href="pfe_learning_activity_2023.csv" download class="download-btn">⬇ Download CSV</a>
-      <ul>
-        <li>user_id</li>
-        <li>region</li>
-        <li>activity_month (e.g., “2023-01”, “2023-02”, etc.)</li>
-        <li>modules_completed</li>
-        <li>track_enrolled</li>
-        <li>learning_hours_logged</li>
-      </ul>
-      <h3>Tasks</h3>
-      <p>Outline how you would:</p>
-      <ul>
-        <li>Group and summarize this data to identify usage peaks by month</li>
-        <li>
-          Compare activity across different career tracks (e.g., STEM vs
-          Business)
-        </li>
-        <li>Identify periods of low engagement (e.g., summer, exam season)</li>
-        <li>
-          Suggest reasons for seasonal changes (e.g., holidays, school terms,
-          economic factors)
-        </li>
-        <li>
-          Recommend how PFE could respond (e.g., targeted reminders, new modules
-          before exams)
-        </li>
-      </ul>
-      <p>
-        Tools you can reference: Excel PivotTables, Python (groupby,
-        matplotlib), Tableau dashboards.
-      </p>
-    </div>
-    <div class="container">
-      <h2>Task 3 - User Segmentation</h2>
-      <p>
-        You’re asked to design a visualization showing how learning activity
-        varies by region over the past year. Your audience is a team of outreach
-        managers deciding where to invest in local workshops. You are given a
-        processed file: pfe_regional_learning_summary.csv, with:
-      </p>
-      <p>Preview of <b>pfe_regional_learning_summary.csv</b>:</p>
+  </div>
+
+  <div class="container">
+    <h2>Task 3 - User Segmentation</h2>
+    <p>Preview of <b>pfe_regional_learning_summary.csv</b>:</p>
     <div id="csv3"></div>
     <a href="pfe_regional_learning_summary.csv" download class="download-btn">⬇ Download CSV</a>
-      <ul>
-        <li>region (North, South, East, West)</li>
-        <li>month</li>
-        <li>avg_learning_hours</li>
-        <li>active_users</li>
-        <li>track_focus (most common track per region that month)</li>
-      </ul>
-      <h3>Your Tasks</h3>
-      <p>Describe or sketch a dashboard/chart that:</p>
-      <ul>
-        <li>
-          Shows trends over time (e.g., a line chart with one line per region)
-        </li>
-        <li>Highlights changes in user engagement by month</li>
-        <li>Optionally includes a drop-down filter for “track_focus”</li>
-        <li>
-          Explains why your chosen format (e.g., stacked area chart, multi-line
-          graph) is best for regional comparisons
-        </li>
-      </ul>
-      <p>Include basic design notes such as:</p>
-      <ul>
-        <li>Color scheme for clarity</li>
-        <li>Clear axis labels and titles</li>
-        <li>Optional interactive filters (for use in Power BI or Tableau)</li>
-      </ul>
-      <p>Tools you can reference: Tableau, Power BI, Excel charts.</p>
-    </div>
-    <div class="container">
-      <h2>Submission</h2>
-      <p>
-        When you have completed your tasks, please send them to this email for
-        review and feedback <strong>dataanalystscenario@gmail.com</strong>. Good luck!
-      </p>
-      <p>If you have any questions, please email <b>pfejobsimulations@gmail.com</b>.</p>
-      </div>
+  </div>
 
-    <footer>
-      <p>&copy; 2025 Kickstart Your Dream Career. All rights reserved.</p>
-    </footer>
-     <!-- Papa Parse library -->
+  <footer>
+    <p>&copy; 2025 Kickstart Your Dream Career. All rights reserved.</p>
+  </footer>
+
+  <!-- Papa Parse library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
   <script>
     function csvToTable(data) {
@@ -288,7 +226,7 @@
         complete: function(results) {
           const container = document.getElementById(containerId);
           if (results.data.length > 0) {
-            container.innerHTML = csvToTable(results.data.slice(0, 10)); // show first 10 rows
+            container.innerHTML = `<div class="table-wrapper">${csvToTable(results.data.slice(0, 10))}</div>`;
           } else {
             container.innerHTML = "<p>No data found.</p>";
           }
@@ -302,5 +240,5 @@
       loadCSV("pfe_regional_learning_summary.csv", "csv3");
     }
   </script>
-  </body>
+</body>
 </html>
