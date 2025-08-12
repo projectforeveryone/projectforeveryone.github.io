@@ -1,4 +1,4 @@
-/* General Styles */
+/* General Styles */ 
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f0f8ff;
@@ -6,9 +6,7 @@ body {
   margin: 0;
   padding: 0;
   transition: background-color 0.3s ease, color 0.3s ease;
-  
 }
-
 
 .container {
   max-width: 1200px;
@@ -188,7 +186,6 @@ a:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Animations and Hover Effects */
 .faq-item h3:hover {
   transform: translateX(5px);
 }
@@ -256,11 +253,27 @@ body.dark-mode a {
   background-color: #ffa502;
 }
 
-/* Media Queries */
+/* Mobile Styles - Option 1: Margin Spacing for Buttons */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
-    gap: 10px;
+    align-items: stretch; /* make buttons full width */
+    gap: 0; /* turn off flex gap since we're using margins */
+  }
+
+  nav ul li {
+    margin-bottom: 18px; /* space between buttons */
+  }
+
+  nav ul li:last-child {
+    margin-bottom: 0; /* remove last gap */
+  }
+
+  nav ul li a {
+    padding: 14px 20px; /* larger tap area */
+    font-size: 1.1rem;
+    display: block;
+    text-align: center;
   }
 
   .section {

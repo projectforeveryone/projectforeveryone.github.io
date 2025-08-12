@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Job Scenarios and Simulations</title>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SL71CGGMMW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SL71CGGMMW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-SL71CGGMMW');
-</script>
+    gtag('config', 'G-SL71CGGMMW');
+  </script>
   <!-- Open Graph Meta Tags for LinkedIn and Other Platforms -->
   <meta property="og:title" content="Project For Everyone – Job Scenarios and Simulations" />
   <meta property="og:description" content="Practical, hands-on career scenarios for high school leavers and university students to prepare for their first job." />
@@ -33,109 +33,41 @@
       margin: 0;
       padding: 0;
       color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    /* Make container flexible */
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 1rem;
-  background-color: #ffffffcc;
-  border-radius: 12px;
-  margin-top: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
 
-/* Adjust typography for small screens */
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 1rem auto 3rem;
+      padding: 1rem;
+      background-color: #ffffffcc;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      flex-grow: 1;
+    }
 
-h2 {
-  font-size: 1.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 0.8rem;
-}
-
-/* Search bar & icon stack on small screens */
-.search-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-input.search-bar {
-  flex: 1;
-  min-width: 200px;
-  padding: 0.6rem;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.search-icon {
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-/* Home button responsiveness */
-.home-btn {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 1000;
-  background-color: rgb(240, 158, 6);
-  border: 2px solid #333;
-  border-radius: 50%;
-  padding: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s, transform 0.2s;
-  text-decoration: none;
-}
-
-.home-btn:hover {
-  background-color: #ecab4a;
-  transform: scale(1.05);
-}
-
-.home-icon {
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-}
-
-/* Tablets */
-@media (min-width: 600px) {
-  h1 { font-size: 2.3rem; }
-  h2 { font-size: 1.6rem; }
-  .home-icon { width: 36px; height: 36px; }
-}
-
-/* Desktops */
-@media (min-width: 1024px) {
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 1.8rem; }
-  .home-icon { width: 48px; height: 48px; }
-}
-
+    /* Header */
     header {
       position: relative;
-      padding: 20px;
+      padding: 20px 1rem 40px; /* More bottom padding for spacing */
       text-align: center;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      margin-bottom: 1rem;
     }
 
+    h2 {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Simulation cards */
     .simulation {
       background: white;
       border-radius: 10px;
@@ -162,26 +94,126 @@ input.search-bar {
       color: white;
       text-decoration: none;
       border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
 
-    .button-link:hover {
+    .button-link:hover,
+    .button-link:focus {
       background-color: #ff914d;
+      outline: none;
     }
 
+    /* Search container */
     .search-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     .search-bar {
-      padding: 10px;
+      padding: 10px 15px;
       border-radius: 30px;
       border: none;
       outline: none;
       width: 250px;
+      max-width: 100%;
+      font-size: 1rem;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+
+    .search-icon {
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 5px;
+      flex-shrink: 0;
+    }
+
+    /* Home button */
+    .home-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1000;
+      background-color: rgb(240, 158, 6);
+      border: 2px solid #333;
+      border-radius: 50%;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s, transform 0.2s;
+      text-decoration: none;
+    }
+
+    .home-btn:hover,
+    .home-btn:focus {
+      background-color: #ecab4a;
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    .home-icon {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Back button */
+    .back-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 1000;
+      background-color: #ff6b6b;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .back-btn:hover,
+    .back-btn:focus {
+      background-color: #ff4a4a;
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(to right, #ff4e50, #f9d423);
+      text-align: center;
+      padding: 1rem;
+      color: white;
+      font-size: 0.9rem;
+      box-shadow: 0 -4px 8px rgba(0,0,0,0.05);
+    }
+
+    /* Responsive typography and layout tweaks */
+    @media (min-width: 600px) {
+      h1 { font-size: 2.3rem; }
+      h2 { font-size: 1.6rem; }
+      .home-icon { width: 36px; height: 36px; }
+    }
+
+    @media (min-width: 1024px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.8rem; }
+      .home-icon { width: 48px; height: 48px; }
     }
   </style>
+
   <script>
     function searchSimulations() {
       const input = document.getElementById("searchInput").value.toLowerCase();
@@ -191,18 +223,29 @@ input.search-bar {
         sim.style.display = title.includes(input) ? "block" : "none";
       });
     }
+
+    // Back button function
+    function goBack() {
+      if (document.referrer) {
+        window.history.back();
+      } else {
+        // fallback URL if no history
+        window.location.href = "index.html";
+      }
+    }
   </script>
-  
 </head>
 <body>
 
   <header>
-    <button class="home-btn" onclick="window.location.href='index.html'">
-      <img src="home.png" alt="Home" class="home-icon">
+    <button class="home-btn" onclick="window.location.href='index.html'" aria-label="Go to Home">
+      <img src="home.png" alt="Home" class="home-icon" />
     </button>
+    <!-- Added back button top right -->
+    <button class="back-btn" onclick="goBack()" aria-label="Go Back">Back</button>
   </header>
 
-  <div class="container">
+  <main class="container">
     <h1>Job Scenarios and Simulations</h1>
 
     <div class="search-container">
@@ -212,8 +255,9 @@ input.search-bar {
         placeholder="Search for a simulation..."
         class="search-bar"
         onkeyup="searchSimulations()"
+        aria-label="Search for a simulation"
       />
-      <img src="search.png" alt="Search" class="search-icon" onclick="searchSimulations()">
+      <img src="search.png" alt="Search" class="search-icon" onclick="searchSimulations()" role="button" tabindex="0" aria-label="Search button" />
     </div>
 
     <div class="simulation">
@@ -239,7 +283,7 @@ input.search-bar {
       <p>The Software Developer job simulation challenges participants to write code, debug applications, and collaborate on software projects, providing a realistic glimpse into the life of a developer.</p>
       <a href="software.html" class="button-link">Click here</a>
     </div>
-  </div>
+  </main>
 
   <footer>
     <p>&copy; 2025 Kickstart Your Dream Career. All rights reserved.</p>

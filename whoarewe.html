@@ -1,185 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Who We Are - Kickstart Your Dream Career</title>
-    <style>
-        /* General Styles */
-body {
-    font-family: 'Lato', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f8ff; /* Light background for a fresh look */
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    scroll-behavior: smooth; /* Smooth scrolling */
-}
-
-header {
-    background-color: #FF6B6B; /* Bright Coral */
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
-    border-bottom: 5px solid #FF4757; /* Slightly darker coral for emphasis */
-    position: relative;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
-header .home-button {
-    background-color: #FF4757;
-    color: #fff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1.1em;
-    font-weight: bold;
-    transform: translateY(-50%);
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 1rem;
-}
-
-header .home-button:hover {
-    background-color: #e84118; /* More intense hover effect */
-    transform: translateY(-5px); /* Hover lift effect */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Adding shadow for pop */
-}
-
-.container {
-    flex: 1;
-    width: 90%;
-    max-width: 1200px;
-    padding: 2.5rem;
-    background-color: #fff;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('students.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    margin: 3rem auto;
-    position: relative;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.container:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Extra shadow on hover */
-}
-
-h1 {
-    text-align: center;
-    font-size: 2.8rem;
-    margin-bottom: 1rem;
-    color: #fff;
-    font-family: 'Poppins', sans-serif; /* Trendy font for titles */
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: #FF4757;
-    text-align: left;
-    font-family: 'Poppins', sans-serif;
-}
-
-.mission, .vision {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background-color: #fefefe;
-    background-image: linear-gradient(to right, #fbc2eb, #a18cd1); /* Soft gradient background */
-}
-
-.mission p, .vision p {
-    text-align: left;
-    line-height: 1.8;
-    margin-bottom: 0.8rem;
-    font-size: 1.15rem;
-    color: #444;
-}
-
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background-color: #FF6B6B;
-    color: #fff;
-    border-top: 5px solid #FF4757;
-    margin-top: auto;
-    font-size: 0.95rem;
-    font-family: 'Lato', sans-serif;
-}
-
-/* Animation */
-.mission, .vision {
-    animation: fadeInUp 1s ease both;
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Who We Are</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Mobile-first, accessible, responsive styles */
+    :root{
+      --accent-1:#ff6b6b;
+      --accent-2:#ffb347;
+      --bg-1:#ffecd2;
+      --bg-2:#fcb69f;
+      --card-bg: #ffffff;
+      --muted: #555;
+      --max-desktop:1100px;
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    header .home-button {
-        font-size: 0.95em;
-        padding: 10px 18px;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg,var(--bg-1),var(--bg-2));
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      font-size:16px;
     }
 
-    .container {
-        margin: 1.5rem;
-        padding: 1.5rem;
+    /* Skip link */
+    .skip-link{
+      position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+    }
+    .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;padding:.5rem 1rem;background:#000;color:#fff;border-radius:6px}
+
+    header{
+      background: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+      color:white;text-align:center;padding:1rem .75rem;border-bottom-left-radius:12px;border-bottom-right-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,0.08);
+    }
+    .header-inner{max-width:var(--max-desktop);margin:0 auto;display:flex;gap:1rem;align-items:center;justify-content:center;flex-wrap:wrap}
+    header h1{font-size:clamp(1.4rem,4vw,2rem);font-weight:700}
+    .home-button{background:white;color:var(--accent-1);padding:.55rem 1rem;border:0;border-radius:999px;font-weight:600;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+    .home-button:active{transform:translateY(1px)}
+
+    /* Layout */
+    main.container{flex:1;max-width:var(--max-desktop);width:100%;margin:1.25rem auto;padding:0 1rem;display:grid;grid-template-columns:1fr;gap:1rem}
+
+    .card{background:var(--card-bg);border-radius:12px;padding:1rem;box-shadow:0 6px 18px rgba(0,0,0,0.06);transition:transform .2s ease}
+    .card:hover{transform:translateY(-4px)}
+    .card h2{color:var(--accent-1);font-size:clamp(1.1rem,3.2vw,1.4rem);margin-bottom:.6rem}
+    .card p{color:var(--muted);font-size:clamp(.95rem,2.6vw,1rem);margin-bottom:.6rem}
+
+    /* Excerpt for small screens */
+    .excerpt{display:block}
+
+    /* Full text (hidden by default on small screens) */
+    .full-text{max-height:0;overflow:hidden;transition:max-height .35s ease;padding-top:0}
+    .full-text.open{max-height:1600px;padding-top:.6rem}
+
+    .read-more{
+      display:inline-block;margin-top:.25rem;background:transparent;border:1px solid var(--accent-1);color:var(--accent-1);padding:.45rem .75rem;border-radius:999px;font-weight:600;cursor:pointer
+    }
+    .read-more[aria-expanded="true"]{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;border-color:transparent}
+
+    footer{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#fff;text-align:center;padding:.85rem;border-top-left-radius:12px;border-top-right-radius:12px;margin-top:1rem}
+
+    /* Desktop / larger screens - show full text and hide read-more */
+    @media (min-width:720px){
+      main.container{grid-template-columns:repeat(2,1fr);gap:1.5rem;margin:2.5rem auto}
+      .excerpt{display:none}
+      .full-text{max-height:1600px;padding-top:.6rem}
+      .read-more{display:none}
     }
 
-    h1 {
-        font-size: 2.2rem;
+    /* Ultra small screens tweaks */
+    @media (max-width:360px){
+      header{padding:.75rem}
+      .card{padding:.8rem}
+      .home-button{padding:.45rem .8rem}
     }
 
-    h2 {
-        font-size: 1.6rem;
-    }
-
-    .mission p, .vision p {
-        font-size: 1.05rem;
-    }
-}
-    </style>
+    /* Utility */
+    .muted{color:var(--muted)}
+  </style>
 </head>
 <body>
-
-<header>
-    <h1>Who We Are</h1>
-    <button class="home-button" onclick="window.location.href='index.html';">Home</button>
-</header>
-
-<div class="container">
-    <div class="mission">
-        <h2>Missions</h2>
-        <p>Our mission is to empower individuals with the skills and knowledge necessary to thrive in their chosen careers, ensuring they are equipped to meet the demands of an ever-evolving job market.</p>
-        <p>We aim to create opportunities for growth, fostering an inclusive environment where every aspiring professional can achieve their goals.</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="header-inner">
+      <h1>Who We Are</h1>
+      <button class="home-button" onclick="location.href='index.html'">Home</button>
     </div>
+  </header>
 
-    <div class="vision">
-        <h2>Visions</h2>
-        <p>Our vision is to be the leading platform in career development, recognized for our innovative approach and commitment to excellence.</p>
-        <p>We aspire to transform the landscape of career coaching, making quality education accessible to all, and inspiring the next generation of leaders.</p>
-    </div>
-</div>
+  <main id="main" class="container" role="main">
 
-<footer>
+    <section class="card" aria-labelledby="mission-heading">
+      <h2 id="mission-heading">Mission</h2>
+
+      <!-- Mobile-friendly excerpt (short) -->
+      <p class="excerpt">We empower people with practical skills, knowledge, and confidence to succeed in rapidly changing careers.</p>
+
+      <!-- Full mission text (expanded on desktop or when "Read more" clicked) -->
+      <div class="full-text" aria-hidden="true">
+        <p><strong>Our mission</strong> is to empower individuals from all walks of life with the practical skills, relevant knowledge, and growth mindset needed to excel in their chosen careers. In an era where the global job market is rapidly evolving due to technological advancements, shifting industry landscapes, and emerging opportunities, we are dedicated to ensuring that every aspiring professional is fully equipped to adapt, innovate, and thrive.</p>
+
+        <p>We believe that success is built on more than technical ability—it requires resilience, adaptability, and the confidence to embrace change. That’s why we focus on delivering resources, training, and experiences that not only enhance career-specific skills but also cultivate problem-solving, communication, and leadership abilities. Through a blend of accessible learning opportunities, real-world applications, and mentorship, we bridge the gap between academic knowledge and professional success.</p>
+
+        <p>Our commitment extends beyond skill development. We strive to create a truly inclusive and supportive environment where diversity is celebrated, equal opportunities are prioritized, and barriers to success are actively dismantled. We believe that talent knows no boundaries, and we work tirelessly to ensure that every individual—regardless of background, circumstance, or stage of their career journey—has the platform, tools, and encouragement to achieve their goals.</p>
+
+        <p>Ultimately, our vision is to inspire a new generation of professionals who are not only prepared for the challenges of today’s workforce but are also capable of shaping the future of their industries. By empowering individuals to reach their full potential, we contribute to building a more skilled, innovative, and equitable society.</p>
+      </div>
+
+      <button class="read-more" aria-expanded="false">Read more</button>
+    </section>
+
+    <section class="card" aria-labelledby="vision-heading">
+      <h2 id="vision-heading">Vision</h2>
+
+      <p class="excerpt">To be the leading, accessible platform in career development—innovative, inclusive, and results-driven.</p>
+
+      <div class="full-text" aria-hidden="true">
+        <p><strong>Our vision</strong> is to become the world’s leading platform in career development—an enduring source of inspiration, opportunity, and transformation for individuals across all industries and stages of their professional journey. We aim to be recognized not only for our innovative and forward-thinking approach, but also for our unwavering commitment to excellence, integrity, and measurable results.</p>
+
+        <p>We aspire to revolutionize the way career coaching and professional development are delivered by integrating cutting-edge technology, personalized guidance, and real-world insights into every stage of the learning process. Our goal is to make high-quality, impactful education accessible to all—breaking down barriers related to geography, cost, and background—so that talent and ambition, rather than circumstance, determine a person’s potential.</p>
+
+        <p>Beyond skills and training, we envision shaping a global community of empowered, purpose-driven professionals who are equipped to lead with confidence, adapt to change, and drive innovation within their fields. By inspiring and nurturing the next generation of leaders, we aim to transform the workforce into one that is not only more skilled, but also more inclusive, ethical, and forward-looking.</p>
+
+        <p>In achieving this vision, we seek to create a lasting legacy—one where our platform is synonymous with opportunity, our methods are seen as benchmarks of innovation, and our graduates become catalysts for positive change in their organizations, industries, and societies at large.</p>
+      </div>
+
+      <button class="read-more" aria-expanded="false">Read more</button>
+    </section>
+
+  </main>
+
+  <footer>
     <p>&copy; 2025 Kickstart Your Dream Career. All rights reserved.</p>
-</footer>
+  </footer>
 
+  <script>
+    // Small, accessible read-more toggle. Desktop shows full content by CSS (media query).
+    function setDesktopState(){
+      const isDesktop = window.matchMedia('(min-width:720px)').matches;
+      document.querySelectorAll('.full-text').forEach(el => {
+        if(isDesktop){
+          el.classList.add('open');
+          el.setAttribute('aria-hidden','false');
+        } else {
+          el.classList.remove('open');
+          el.setAttribute('aria-hidden','true');
+        }
+      });
+      document.querySelectorAll('.read-more').forEach(btn => {
+        btn.style.display = isDesktop ? 'none' : 'inline-block';
+        btn.setAttribute('aria-expanded','false');
+        btn.textContent = 'Read more';
+      });
+    }
+
+    document.addEventListener('click', function(e){
+      const btn = e.target.closest('.read-more');
+      if(!btn) return;
+      const card = btn.closest('.card');
+      const full = card.querySelector('.full-text');
+      const isOpen = full.classList.toggle('open');
+      full.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      btn.setAttribute('aria-expanded', String(isOpen));
+      btn.textContent = isOpen ? 'Show less' : 'Read more';
+    });
+
+    // Initialize & re-evaluate on resize
+    setDesktopState();
+    window.addEventListener('resize', setDesktopState);
+  </script>
 </body>
 </html>
