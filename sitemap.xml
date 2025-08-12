@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://projectforeveryone.github.io/</loc>
+    <lastmod>2025-08-12</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Pages -->
+  <url>
+    <loc>https://projectforeveryone.github.io/whoarewe.html</loc>
+    <lastmod>2025-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://projectforeveryone.github.io/aboutproject.html</loc>
+    <lastmod>2025-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://projectforeveryone.github.io/assistance.html</loc>
+    <lastmod>2025-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://projectforeveryone.github.io/soon.html</loc>
+    <lastmod>2025-08-12</lastmod>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://projectforeveryone.github.io/soon.html</loc>
+    <lastmod>2025-08-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
