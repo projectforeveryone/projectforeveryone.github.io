@@ -309,3 +309,16 @@ body.dark-mode a {
     width: 100%;
   }
 }
+.email-link {
+  display: inline-block;
+  word-break: break-word; /* older browsers */
+  overflow-wrap: anywhere; /* modern browsers */
+}
+
+@media (max-width: 600px) {
+  .email-link {
+    font-size: 0.9rem;      /* slightly smaller on mobile */
+    word-break: break-all;  /* ensures no overflow */
+  }
+}
+
