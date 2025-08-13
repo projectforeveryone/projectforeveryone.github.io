@@ -143,39 +143,47 @@
   </footer>
 
   <script>
-    // Small, accessible read-more toggle. Desktop shows full content by CSS (media query).
-    function setDesktopState(){
-      const isDesktop = window.matchMedia('(min-width:720px)').matches;
-      document.querySelectorAll('.full-text').forEach(el => {
-        if(isDesktop){
-          el.classList.add('open');
-          el.setAttribute('aria-hidden','false');
-        } else {
-          el.classList.remove('open');
-          el.setAttribute('aria-hidden','true');
-        }
-      });
-      document.querySelectorAll('.read-more').forEach(btn => {
-        btn.style.display = isDesktop ? 'none' : 'inline-block';
-        btn.setAttribute('aria-expanded','false');
-        btn.textContent = 'Read more';
-      });
-    }
+  let isDesktopMode = window.matchMedia('(min-width:720px)').matches;
 
-    document.addEventListener('click', function(e){
-      const btn = e.target.closest('.read-more');
-      if(!btn) return;
-      const card = btn.closest('.card');
-      const full = card.querySelector('.full-text');
-      const isOpen = full.classList.toggle('open');
-      full.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-      btn.setAttribute('aria-expanded', String(isOpen));
-      btn.textContent = isOpen ? 'Show less' : 'Read more';
+  function setDesktopState(force = false) {
+    const newIsDesktop = window.matchMedia('(min-width:720px)').matches;
+    if (!force && newIsDesktop === isDesktopMode) return; // only run if mode changes
+    isDesktopMode = newIsDesktop;
+
+    document.querySelectorAll('.full-text').forEach(el => {
+      if (isDesktopMode) {
+        el.classList.add('open');
+        el.setAttribute('aria-hidden', 'false');
+      } else {
+        el.classList.remove('open');
+        el.setAttribute('aria-hidden', 'true');
+      }
     });
 
-    // Initialize & re-evaluate on resize
-    setDesktopState();
-    window.addEventListener('resize', setDesktopState);
-  </script>
+    document.querySelectorAll('.read-more').forEach(btn => {
+      btn.style.display = isDesktopMode ? 'none' : 'inline-block';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.textContent = 'Read more';
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.read-more');
+    if (!btn) return;
+    const card = btn.closest('.card');
+    const full = card.querySelector('.full-text');
+    const isOpen = full.classList.toggle('open');
+    full.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    btn.setAttribute('aria-expanded', String(isOpen));
+    btn.textContent = isOpen ? 'Show less' : 'Read more';
+  });
+
+  // Run once on load
+  setDesktopState(true);
+
+  // Only run when crossing mobile/desktop boundary
+  window.matchMedia('(min-width:720px)').addEventListener('change', () => setDesktopState(true));
+</script>
+
 </body>
 </html>

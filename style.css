@@ -1,4 +1,4 @@
-/* General Styles */ 
+/* General Styles */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f0f8ff;
@@ -253,38 +253,59 @@ body.dark-mode a {
   background-color: #ffa502;
 }
 
-/* Mobile Styles - Option 1: Margin Spacing for Buttons */
+/* Menu Toggle Button (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  background: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Mobile Styles with Toggle Nav */
 @media (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .menu-toggle {
+    display: block;
+    align-self: flex-start;
+    margin: 10px 20px;
+  }
+
+  nav {
+    display: none; /* hidden by default */
+    background: linear-gradient(45deg, #ff6b81, #ff4757, #ffa502);
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  nav.open {
+    display: block; /* shown when toggle clicked */
+  }
+
   nav ul {
     flex-direction: column;
-    align-items: stretch; /* make buttons full width */
-    gap: 0; /* turn off flex gap since we're using margins */
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
   }
 
   nav ul li {
-    margin-bottom: 18px; /* space between buttons */
-  }
-
-  nav ul li:last-child {
-    margin-bottom: 0; /* remove last gap */
+    margin: 10px 0;
   }
 
   nav ul li a {
-    padding: 14px 20px; /* larger tap area */
-    font-size: 1.1rem;
+    padding: 14px 20px;
     display: block;
     text-align: center;
-  }
-
-  .section {
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  p {
-    font-size: 1rem;
+    width: 100%;
   }
 }

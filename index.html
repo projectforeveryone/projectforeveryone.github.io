@@ -22,11 +22,20 @@
 
   <meta name="google-site-verification" content="1xc1J4j1_2rLD0XH4QLt48PxgGstPpDyztYwqChD9HM" />
     <link rel="stylesheet" href="style.css" />
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('nav').classList.toggle('open');
+  });
+});
+
+    </script>
   </head>
   <body>
     <div class="container">
       <header>
         <h1>Project For Everyone</h1>
+        <button class="menu-toggle">☰</button>
         <nav>
           <ul>
             <li><a href="whoarewe.html">Who are we</a></li>
