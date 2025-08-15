@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers – Project For Everyone</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff4e50, #f9d423);
+      margin: 0;
+      padding: 0;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 1rem auto 3rem;
+      padding: 1rem;
+      background-color: #ffffffcc;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      flex-grow: 1;
+    }
+
+    header {
+      position: relative;
+      padding: 20px 1rem 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .career {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .career h2 {
+      color: #ff3131;
+      margin-top: 0;
+    }
+
+    .career p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .button-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #ff3131;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-link:hover {
+      background-color: #ff914d;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .search-bar {
+      padding: 10px 15px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+      width: 250px;
+      max-width: 100%;
+      font-size: 1rem;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+
+    .search-icon {
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 5px;
+      flex-shrink: 0;
+    }
+
+    .home-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1000;
+      background-color: rgb(240, 158, 6);
+      border: 2px solid #333;
+      border-radius: 50%;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s, transform 0.2s;
+      text-decoration: none;
+    }
+
+    .home-btn:hover {
+      background-color: #ecab4a;
+      transform: scale(1.05);
+    }
+
+    .home-icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    footer {
+      background: linear-gradient(to right, #ff4e50, #f9d423);
+      text-align: center;
+      padding: 1rem;
+      color: white;
+      font-size: 0.9rem;
+      box-shadow: 0 -4px 8px rgba(0,0,0,0.05);
+    }
+    /* Larger screen adjustments */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px; /* Make main content wider */
+    padding: 2rem; /* More space inside */
+  }
+
+  .career {
+    padding: 30px; /* Bigger cards */
+  }
+
+  h1 {
+    font-size: 3rem; /* Larger heading */
+  }
+
+  h2 {
+    font-size: 2rem; /* Larger subheadings */
+  }
+
+  .career p {
+    font-size: 1.1rem; /* Slightly larger text for readability */
+  }
+
+  .search-bar {
+    width: 350px; /* Larger search bar */
+    font-size: 1.1rem;
+  }
+}
+  </style>
+
+  <script>
+    function searchCareers() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const careers = document.querySelectorAll(".career");
+      careers.forEach(career => {
+        const title = career.querySelector("h2").textContent.toLowerCase();
+        career.style.display = title.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <button class="home-btn" onclick="window.location.href='index.html'" aria-label="Go to Home">
+      <img src="home.png" alt="Home" class="home-icon" />
+    </button>
+  </header>
+
+  <main class="container">
+    <h1>Careers</h1>
+
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search for a career..."
+        class="search-bar"
+        onkeyup="searchCareers()"
+        aria-label="Search for a career"
+      />
+      <img src="search.png" alt="Search" class="search-icon" onclick="searchCareers()" />
+    </div>
+
+    <div class="career">
+      <h2>Law and Politics</h2>
+      <p>Explore careers in legal practice, policy-making, and political analysis.</p>
+      <a href="law-politics.html" class="button-link">Learn more</a>
+    </div>
+    <div class="career">
+      <h2>Engineering</h2>
+      <p>Dive into various engineering fields including civil, mechanical, and electrical.</p>
+      <a href="engineering.html" class="button-link">Learn more</a>
+    </div>
+
+    <div class="career">
+      <h2>Business</h2>
+      <p>Discover paths in management, entrepreneurship, and corporate strategy.</p>
+      <a href="business.html" class="button-link">Learn more</a>
+    </div>
+
+    <div class="career">
+      <h2>Finance</h2>
+      <p>Learn about careers in banking, investment, and financial planning.</p>
+      <a href="finance.html" class="button-link">Learn more</a>
+    </div>
+
+    <div class="career">
+      <h2>Economics</h2>
+      <p>Explore opportunities in economic analysis, policy advisory, and market research.</p>
+      <a href="economics.html" class="button-link">Learn more</a>
+    </div>
+
+    <div class="career">
+      <h2>Technology</h2>
+      <p>Dive into fields such as software development, IT, and emerging tech innovations.</p>
+      <a href="technology.html" class="button-link">Learn more</a>
+    </div>
+
+    <div class="career">
+      <h2>Biomedicine and Pharmacy</h2>
+      <p>Understand careers in medical research, pharmaceuticals, and healthcare innovation.</p>
+      <a href="biomedicine-pharmacy.html" class="button-link">Learn more</a>
+    </div>
+
+    <div class="career">
+      <h2>Psychology</h2>
+      <p>Learn about careers in mental health, research, and applied psychology.</p>
+      <a href="psychology.html" class="button-link">Learn more</a>
+    </div>
+
+    <div class="career">
+      <h2>Accounting</h2>
+      <p>Explore paths in auditing, tax, and financial reporting.</p>
+      <a href="accounting.html" class="button-link">Learn more</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Project For Everyone. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

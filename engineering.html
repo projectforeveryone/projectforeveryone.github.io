@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Careers</title>
+  <style>
+    body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #ff4e50, #f9d423);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.25rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Main content container */
+main {
+  max-width: 1400px;
+  margin: auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Section styling */
+section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+section h2 {
+  margin-top: 0;
+  color: #ff4e50;
+  font-size: 1.6rem;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+.highlight {
+  background: #fff5e6;
+  border-left: 6px solid #ff9500;
+}
+
+/* Back button */
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #ff4e50;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+
+.back-btn:hover {
+  background: #e84118;
+}
+
+/* Larger layouts */
+@media (min-width: 992px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  section {
+    padding: 2.5rem;
+    font-size: 1.05rem;
+  }
+
+  header h1 {
+    font-size: 3rem;
+  }
+
+  header p {
+    font-size: 1.3rem;
+  }
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  header p {
+    font-size: 1.05rem;
+  }
+  main {
+    grid-template-columns: 1fr;
+  }
+  .back-btn {
+    padding: 0.6rem 1rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <button class="back-btn" onclick="history.back()">← Back</button>
+
+  <header>
+    <h1>Engineering Careers: Your Guide to Building the Future</h1>
+    <p>Engineering is about solving problems, making ideas a reality, and shaping the modern world.</p>
+  </header>
+
+  <main>
+    <section>
+        <h2>Do you have what it takes?</h2>
+      <p>If you enjoy maths, science, technology, and being creative, then engineering could be an exciting and rewarding path for you. Engineering isn’t just about memorizing formulas or following instructions – it’s about using your knowledge to solve real-world problems, design innovative solutions, and make life better for people.
+
+Curiosity and a desire to explore how things work are just as important as technical skills. Problem-solving abilities, logical thinking, and persistence will help you tackle challenges that don’t always have a clear solution. Collaboration and communication skills also matter – engineers often work in teams, sharing ideas and learning from others.
+
+Even if you don’t see yourself as a “maths genius,” there’s a place for you in engineering. A willingness to learn, adapt, and approach problems creatively is often more valuable than raw technical ability. The field rewards curiosity, dedication, and imagination, giving you the chance to shape the future in ways you might never have imagined.</p>
+    </section>
+
+    <section>
+      <h2>Different Types of Engineering</h2>
+      <ul>
+        <li><strong>Civil Engineering</strong> – Design and maintain infrastructure like roads, bridges, and water systems.</li>
+        <li><strong>Mechanical Engineering</strong> – Work with machines and mechanical systems.</li>
+        <li><strong>Electrical & Electronic Engineering</strong> – Power, electronics, and control systems.</li>
+        <li><strong>Chemical Engineering</strong> – Turn raw materials into useful products.</li>
+        <li><strong>Software & Systems Engineering</strong> – Create software, apps, and computer systems.</li>
+        <li><strong>Biomedical Engineering</strong> – Combine engineering with medicine to improve healthcare.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Salary Guide (UK, 2025)</h2>
+      <ul>
+        <li>Graduate Engineer: £28,000 – £35,000</li>
+        <li>Experienced Engineer: £40,000 – £55,000</li>
+        <li>Chartered Engineer: £55,000 – £70,000+</li>
+        <li>Senior Manager/Director: £70,000 – £100,000+</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How to Become an Engineer</h2>
+      <ul>
+        <li><strong>University Degree</strong> – BEng or MEng in a relevant subject.</li>
+        <li><strong>Degree Apprenticeships</strong> – Earn a salary while studying.</li>
+        <li><strong>Higher Apprenticeships / HNC or HND</strong> – Practical routes into engineering.</li>
+        <li><strong>T Levels & A Levels</strong> – Maths, Physics, Chemistry, and Design & Technology are valued.</li>
+        <li><strong>Career Changes</strong> – Postgraduate or conversion courses can help you transition.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Career Progression</h2>
+      <p><b>Junior/Graduate Engineer</b> – You’ll work under supervision, learning technical skills, using industry-standard software, and contributing to real projects.</p>
+        <p><b>Mid-Level Engineer</b> – After 2-5 years, you’ll take on more responsibility, lead small projects, and start to specialise in your area of interest.</p>
+        <p><b>Chartered Engineer (CEng)</b> – Achieved through professional development and experience, this status opens doors to senior management and specialist roles.</p>
+        <p><b>Senior Engineer</b> – With 5+ years of experience, you’ll manage larger projects, mentor junior staff, and may start to move into management roles.</p>
+        <p><b>Project Manager</b> – Oversee engineering projects, managing budgets, timelines, and teams.</p>
+        <p><b>Specialist Consultant </b> - Become a subject-matter expert that companies hire for high-value, complex problems.</p>
+        <p><b>Director/Executive</b> – Top-level roles overseeing engineering departments, strategy, and large-scale projects.</p>
+        <p><b>Entrepreneur</b> – Start your own engineering consultancy or tech startup, applying your skills to innovate and solve problems.</p>
+    </section>
+
+    <section class="highlight">
+      <h2>Why Choose Engineering?</h2>
+      <ul>
+        <li><b>Impact:</b> As an engineer, you contribute to projects that directly improve quality of life — from clean water systems in developing countries to renewable energy plants reducing carbon emissions.</li>
+        <li><b>Variety:</b> Engineering isn’t a single path — you can switch industries without starting from scratch. A mechanical engineer could move into aerospace, automotive, or even medical devices.</li>
+        <li><b>Constant Innovation:</b> Technology evolves fast, meaning your work stays exciting and relevant. You might find yourself experimenting with AI, 3D printing, or sustainable materials.</li>
+        <li><b>Career Stability:</b> Engineers are always in demand, both in the UK and globally. Even during economic downturns, engineering roles remain relatively stable.</li>
+        <li><b>Opportunities for Leadership:</b> With experience, engineers often step into high-level decision-making positions, influencing how major projects take shape.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Tips for Students</h2>
+      <ul>
+        <li>Get Hands-On Early: Join robotics clubs, coding competitions, or maker spaces. The earlier you build and experiment, the better your problem-solving skills will be.</li>
+        <li>Build Your Portfolio: Keep a record of school projects, personal inventions, or coding work — this can impress employers and universities.</li>
+        <li>Seek Out Mentors: Reach out to professionals via LinkedIn, career fairs, or engineering societies. Advice from someone in the field is invaluable.</li>
+        <li>Learn Beyond the Curriculum: Explore YouTube tutorials, online courses, or open-source projects to go deeper into topics that interest you.</li>
+        <li>Work on Soft Skills: Communication, teamwork, and project management are as important as technical knowledge — engineers rarely work alone.</li>
+        <li>Stay Curious: The best engineers are lifelong learners. Keep up with industry news, new technologies, and emerging trends.</li>
+        <li>Network: Attend engineering events, webinars, and workshops to meet like-minded individuals and potential employers.</li>
+        <li>Internships: Gaining practical experience through internships or work placements can give you a head start in your career and help you apply what you learn in real-world settings (from 2nd year onwards).</li>
+      </ul>
+    </section>
+
+    <section>
+        <h2>Your Future, Engineered</h2>
+      <p>In short: Engineering is about using your knowledge, creativity, and problem-solving skills to make tangible changes in the world around you. It’s a career where ideas become reality—where the projects you work on can touch millions of lives. Whether you dream of designing iconic skyscrapers, developing advanced space technology, creating sustainable energy solutions, or improving healthcare through innovative medical devices, there’s a pathway for you. Engineering is not just about technical skills—it’s about thinking critically, collaborating with others, and continually learning. No matter your interests or strengths, the field offers countless opportunities to explore, innovate, and make a lasting impact on society and the environment.</p>
+    </section>
+  </main>
+</body>
+</html>
